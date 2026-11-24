@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#172554">
-<title>Βάζω στη σωστή σειρά | Διαδραστικές δραστηριότητες</title>
+<title>Μαθαίνω να βάζω στη σωστή σειρά | 30 αποστολές</title>
 <style>
 :root{--navy:#172554;--blue:#2563eb;--cyan:#e0f2fe;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--paper:#fff;--bg:#f3f7fc;--green:#15803d;--red:#b91c1c;--gold:#f59e0b}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
@@ -30,144 +30,906 @@ main{padding:26px 0 42px}.panel{background:var(--paper);border:1px solid var(--l
 
 /* Συμπαγής εμφάνιση: το παιχνίδι πρώτο */
 header{padding:10px 0 12px}header .shell{padding-top:7px;padding-bottom:7px}.brand h1{font-size:1.35rem}.brand p{display:none}.logo{width:38px;height:38px;font-size:22px;border-radius:10px}.profile{font-size:.8rem}main{padding:12px 0 22px}.panel{padding:16px;margin-bottom:12px;border-radius:15px}.section-head{margin-bottom:9px}.section-head h2{font-size:1.06rem}.saved-profiles{padding:0!important;margin:0 0 12px!important}.profile-choices{gap:8px!important}.profile-choice{min-height:52px!important;padding:9px!important}.login{gap:8px}.field input{padding:9px 11px}.btn{padding:9px 12px}.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:7px 10px}.stat strong{font-size:1.15rem}.stat span{font-size:.73rem}.progress-track{margin-top:7px}.worlds{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:8px 0}.world{border-radius:12px;padding:9px}.world-icon{font-size:1.3rem}.world-title{font-size:.83rem}.world small{font-size:.7rem}.world-caption{font-size:.87rem}.activities{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.activity{min-height:61px;padding:10px;border-radius:12px}.activity .emoji{font-size:23px}.activity small{font-size:.73rem}.quick-play{margin-bottom:5px}.extra-panel summary,.game-options summary{cursor:pointer;font-weight:750}.extra-panel summary{list-style:none}.extra-panel summary::-webkit-details-marker{display:none}.extra-panel .achievements{margin-top:15px}.game-options{border:1px solid #e2e8f0;border-radius:12px;padding:10px 12px;margin:10px 0}.game-options .toolbar{margin-top:9px}.instruction{padding:9px 12px;margin:10px 0}.challenge{padding:9px 12px;margin:9px 0}.cards{margin:10px 0;gap:7px}.card{min-height:56px;padding:9px 11px}.game-head .game-title h2{font-size:1.16rem}#app.playing #statsPanel,#app.playing #selectionPanel,#app.playing #medalsPanel,#app.playing #settingsPanel{display:none!important}#app.playing #gamePanel{margin-top:0}#loginPanel{max-width:780px;margin-left:auto;margin-right:auto}@media(max-width:650px){.worlds{grid-template-columns:repeat(2,minmax(0,1fr))}.world small{display:none}.profile{max-width:110px}.stats{gap:5px}.stat span{font-size:.65rem}}
+/* Προαιρετικό ενσωματωμένο βίντεο χωρίς επιβάρυνση της αρχικής οθόνης */
+.video-help{margin:9px 0;border:1px solid #bfdbfe;border-radius:12px;background:#f8fbff;padding:9px 12px}
+.video-help summary{font-weight:800;color:#1d4ed8;cursor:pointer;list-style:none}
+.video-help summary::-webkit-details-marker{display:none}
+.video-help summary::after{content:" ▾";font-size:.85em}
+.video-help[open] summary::after{content:" ▴"}
+.video-frame{margin-top:10px;aspect-ratio:16/9;max-width:760px;background:#0f172a;border-radius:11px;overflow:hidden}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
+.video-help .video-note{margin:8px 0 2px;font-size:.84rem;color:#475569}
+
+/* Αρχική οθόνη σε ύφος κάρτας */
+.login-wrap{max-width:760px;margin:0 auto}.login-card{background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);border:1px solid #dbeafe;border-radius:28px;box-shadow:0 20px 50px #1e3a8a18;padding:28px 34px}.login-title{margin:0 0 10px;color:#1e3a8a;font-size:clamp(2.2rem,4.3vw,3.2rem);line-height:1.05;text-align:center;letter-spacing:-.03em}.login-subtitle{margin:0 auto 24px;max-width:560px;text-align:center;color:#64748b;font-size:1.1rem;line-height:1.45}.login-block{display:grid;gap:8px;margin-bottom:18px}.login-block label{font-weight:800;color:#274472;font-size:1rem}.login-select,.login-card .field input{width:100%;border:2px solid #c7d8f6;border-radius:18px;padding:15px 16px;background:#fff;color:#1e3a8a;outline:none;font-size:1rem}.login-select:focus,.login-card .field input:focus{border-color:#7c92ff;box-shadow:0 0 0 4px #dbeafe}.login-divider{display:flex;align-items:center;gap:14px;margin:16px 0 18px;color:#94a3b8}.login-divider::before,.login-divider::after{content:"";height:1px;background:#cbd5e1;flex:1}.login-divider span{font-size:.98rem}.login-main-btn{width:100%;border:0;border-radius:18px;padding:18px 20px;font-weight:800;font-size:1.15rem;color:#fff;background:linear-gradient(90deg,#2563eb,#6d4df2);box-shadow:0 14px 28px #4f46e533;cursor:pointer;transition:transform .16s,box-shadow .16s}.login-main-btn:hover{transform:translateY(-1px);box-shadow:0 18px 34px #4f46e544}.login-main-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}.login-note{margin:12px 0 0;text-align:center;color:#64748b;font-size:.98rem}.login-note strong{color:#1e293b}.helper-line{margin:2px 0 6px;color:#64748b;font-size:.92rem}.login-choice-wrap{display:grid;gap:8px}.login-card .saved-profiles{padding:0!important;border:0!important;background:transparent!important;margin:0!important}.login-card .profile-choices{gap:8px!important}.login-card .profile-choice{padding:10px 12px!important;min-height:auto!important}@media(max-width:620px){.login-card{padding:24px 18px}.login-title{font-size:2rem}.login-subtitle{font-size:1rem}.login-select,.login-card .field input{padding:13px 14px}}
+
+/* Βελτιωμένη αρχική: ίδιο ύφος με την εκπαιδευτική φόρμα */
+body:has(#loginPanel:not(.hidden)){background:linear-gradient(100deg,#e5efff,#f6f8ff 45%,#e9eaff)}
+body:has(#loginPanel:not(.hidden)) header{background:transparent;padding:0;height:0;overflow:hidden}
+body:has(#loginPanel:not(.hidden)) main{padding:18px 12px 34px}
+body:has(#loginPanel:not(.hidden)) footer{color:#8899ba}
+#loginPanel.login-wrap{max-width:760px;padding:0;background:transparent;box-shadow:none;border:0}
+.login-card{border:0;background:#ffffff;box-shadow:0 18px 60px #284aa61f;border-radius:24px;padding:26px 44px 30px}
+.login-emblem{font-size:2.7rem;text-align:center;margin-bottom:3px}
+.login-title{font-size:clamp(2.15rem,5vw,3rem);color:#193e8a;font-weight:850;line-height:1.12;margin:0 0 15px}
+.login-subtitle{font-size:1.18rem;color:#5a6e94;max-width:590px;margin-bottom:22px}
+.login-block label{font-size:1.1rem;font-weight:800;color:#263f69}
+.login-select,.login-card .field input{border:2px solid #c8d8f7;background:#fbfdff;border-radius:17px;font-size:1.1rem;min-height:61px;padding:14px 17px}
+.login-card .login-divider{margin:20px 0 18px;color:#8699bc}
+.login-card .login-main-btn{margin-top:18px;background:linear-gradient(100deg,#2465ee,#6550e8);border-radius:17px;font-size:1.18rem;padding:20px 15px}
+.login-card .login-note{font-size:.93rem;margin-top:16px}
+.login-card #savedProfiles{max-height:125px;overflow:auto}
+.login-card #savedProfiles .helper-line{display:none}
+.login-card #profileChoices{display:flex;flex-wrap:wrap}
+.login-card .profile-choice{font-size:.89rem;border-radius:12px}
+@media(max-width:620px){.login-card{padding:24px 18px}.login-title{font-size:2rem}.login-select,.login-card .field input{min-height:54px;font-size:1rem}}
+
+/* Διαχείριση εκπαιδευτικού */
+.teacher-toggle{display:block;margin:15px auto 0;border:1px solid #c7d8f6;background:#eff6ff;color:#1e40af;border-radius:13px;padding:10px 17px;font-weight:800}
+.teacher-panel{max-width:1050px;margin:14px auto 22px;background:#fff;border:1px solid #dbeafe;border-radius:22px;padding:20px;box-shadow:0 10px 30px #0f172a0e}
+.teacher-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.teacher-head h2{margin:0;color:#1e3a8a}
+.teacher-form{display:flex;align-items:end;gap:10px;flex-wrap:wrap;margin-top:15px}.teacher-form label{display:grid;gap:6px;font-weight:700;flex:1;min-width:170px}
+.teacher-form input,.teacher-form select,.teacher-filter{border:1px solid #aabfe3;border-radius:11px;padding:10px 12px;max-width:100%;font:inherit}
+.teacher-actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.teacher-table-wrap{overflow-x:auto}.teacher-table{width:100%;border-collapse:collapse;font-size:.91rem}.teacher-table th,.teacher-table td{text-align:left;border-bottom:1px solid #e2e8f0;padding:10px 8px}.teacher-table th{background:#eff6ff;color:#1e3a8a;white-space:nowrap}.teacher-table td:last-child{white-space:nowrap}
+.teacher-note{font-size:.87rem;color:#64748b}.teacher-mini{padding:5px 9px;border-radius:9px;border:1px solid #fecaca;background:#fff1f2;color:#991b1b;font-weight:700}.teacher-stat{font-weight:800;color:#1e40af;margin:7px 0}
+.teacher-panel .btn{padding:9px 13px}@media(max-width:620px){.teacher-panel{padding:13px}.teacher-table{font-size:.83rem}}
+#challenge{display:none!important}
 </style>
 </head>
 <body>
 <header>
  <div class="shell">
   <div class="top">
-   <div class="brand"><div class="logo" aria-hidden="true">🔢</div><div><h1>Βάζω στη σωστή σειρά</h1><p>Σκέφτομαι • οργανώνω • δημιουργώ</p></div></div>
+   <div class="brand"><div class="logo" aria-hidden="true">🧩</div><div><h1>Μαθαίνω τη σωστή σειρά!</h1><p>Σκέφτομαι • οργανώνω • δημιουργώ</p></div></div>
    <div class="profile" id="profileLabel">Δεν έχει επιλεγεί μαθητής</div>
   </div>
   
  </div>
 </header>
 <main class="shell">
- <section class="panel" id="loginPanel">
-  <div class="section-head"><h2>👋 Διάλεξε μαθητή και παίξε!</h2></div>
-  <div id="savedProfiles" class="saved-profiles hidden"><div id="profileChoices" class="profile-choices"></div></div>
-  <div class="login"><div class="field"><label for="studentName">➕ Νέος μαθητής</label><input id="studentName" maxlength="24" autocomplete="off" placeholder="Γράψε ένα όνομα"></div><button class="btn primary" id="startBtn">Ξεκινάω</button></div>
-  
+ <section class="panel login-wrap" id="loginPanel">
+  <div class="login-card">
+   <div class="login-emblem" aria-hidden="true">🧩</div>
+   <h1 class="login-title">Μαθαίνω τη σωστή σειρά!</h1>
+   <p class="login-subtitle">Δημιούργησε τον λογαριασμό σου και ξεκίνα 30 συναρπαστικές αποστολές!</p>
+   <div class="login-block login-choice-wrap">
+    <label for="existingProfileSelect">👤 Έχεις ήδη λογαριασμό;</label>
+    <select id="existingProfileSelect" class="login-select">
+     <option value="new">✨ Δημιουργία νέου λογαριασμού</option>
+    </select>
+    <div id="savedProfiles" class="saved-profiles hidden">
+     <div class="helper-line">Ή διάλεξε ένα αποθηκευμένο όνομα:</div>
+     <div id="profileChoices" class="profile-choices"></div>
+    </div>
+   </div>
+   <div class="login-divider"><span>Στοιχεία μαθητή</span></div>
+   <div id="newStudentFields">
+    <div class="field login-block">
+     <label for="studentName">Το όνομά σου</label>
+     <input id="studentName" maxlength="40" autocomplete="off" placeholder="π.χ. Μαρία Παπαδοπούλου">
+    </div>
+    <div class="field login-block">
+     <label for="studentSection">Το τμήμα σου</label>
+     <select id="studentSection" class="login-select">
+      <option value="">— Διάλεξε τμήμα —</option>
+      <option>Α1</option><option>Α2</option><option>Β1</option><option>Β2</option>
+      <option>Γ1</option><option>Γ2</option><option>Γ3</option>
+      <option>Δ1</option><option>Δ2</option><option>Ε1</option><option>Ε2</option>
+      <option>ΣΤ1</option><option>ΣΤ2</option>
+     </select>
+    </div>
+   </div>
+   <button class="login-main-btn" id="startBtn" type="button">🚀 Κάνε λογαριασμό &amp; ξεκίνα!</button>
+   <p class="login-note">🔒 Χωρίς email ή κωδικό · Η πρόοδός σου αποθηκεύεται σε αυτή τη συσκευή.</p>
+   <button type="button" class="teacher-toggle" id="teacherOpenBtn">🔐 Εκπαιδευτικός</button>
+  </div>
+ </section>
+ <section id="teacherPanel" class="teacher-panel hidden" aria-label="Λειτουργία εκπαιδευτικού">
+  <div class="teacher-head"><h2>🔐 Λειτουργία Εκπαιδευτικού</h2><button type="button" class="btn soft" id="teacherCloseBtn">✕ Κλείσιμο</button></div>
+  <div id="teacherLoginArea">
+   <p class="teacher-note" id="pinInfo">Για την πρώτη χρήση όρισε ένα προσωπικό PIN 4–8 ψηφίων. Θα χρειάζεται για την πρόσβαση.</p>
+   <div class="teacher-form"><label>PIN εκπαιδευτικού<input type="password" id="teacherPin" inputmode="numeric" pattern="[0-9]*" minlength="4" maxlength="8" autocomplete="off" placeholder="4 έως 8 ψηφία"></label><button type="button" class="btn primary" id="teacherUnlockBtn">Είσοδος / Ορισμός PIN</button></div>
+   <p id="teacherPinMessage" class="teacher-note" role="status"></p>
+  </div>
+  <div id="teacherDashboard" class="hidden">
+   <p class="teacher-stat" id="teacherTotals"></p>
+   <div class="teacher-actions"><select id="teacherClassFilter" class="teacher-filter" aria-label="Φιλτράρισμα τμήματος"><option value="">Όλα τα τμήματα</option></select><button class="btn primary" type="button" id="exportCsvBtn">📊 Εξαγωγή Excel (CSV)</button><button class="btn secondary" type="button" id="backupBtn">💾 Αντίγραφο μαθητών (JSON)</button><button class="btn secondary" type="button" id="restoreBtn">📂 Εισαγωγή μαθητών</button><input type="file" id="restoreInput" accept=".json,application/json" class="hidden"><button class="btn soft" type="button" id="changePinBtn">🔑 Αλλαγή PIN</button><button class="btn soft" type="button" id="teacherLockBtn">🔒 Έξοδος</button></div>
+   <div class="teacher-table-wrap"><table class="teacher-table"><thead><tr><th>Μαθητής</th><th>Τμήμα</th><th>Δραστηριότητες</th><th>Αστέρια</th><th>Επίδοση</th><th>Ενέργεια</th></tr></thead><tbody id="teacherRows"></tbody></table></div>
+   <p class="teacher-note">Τα δεδομένα αποθηκεύονται μόνο σε αυτόν τον browser. Το CSV ανοίγει στο Excel. Για μεταφορά/επαναφορά λογαριασμών χρησιμοποιήστε το αρχείο JSON. Το PIN προσφέρει βασικό περιορισμό πρόσβασης στην εφαρμογή, όχι προστασία επιπέδου διακομιστή.</p>
+  </div>
  </section>
  <section id="app" class="hidden">
   <section class="panel" id="statsPanel">
    <div class="section-head"><h2>Η πρόοδός μου</h2><button class="btn soft small" id="switchBtn">Αλλαγή μαθητή</button></div>
    <div class="stats">
-    <div class="stat"><strong id="doneCount">0/20</strong><span>Ολοκληρωμένες δραστηριότητες</span></div>
+    <div class="stat"><strong id="doneCount">0/30</strong><span>Ολοκληρωμένες δραστηριότητες</span></div>
     <div class="stat"><strong id="starCount">0 ⭐</strong><span>Αστέρια που κέρδισες</span></div>
     <div class="stat"><strong id="bestScore">—</strong><span>Καλύτερη επίδοση</span></div>
    </div>
    <div class="progress-track" aria-label="Συνολική πρόοδος"><div class="progress-fill" id="overallBar"></div></div>
   </section>
   <section class="panel" id="selectionPanel">
-   <div class="section-head"><h2>Διάλεξε μια δραστηριότητα</h2><span class="small muted">20 αποστολές</span></div>
+   <div class="section-head"><h2>Διάλεξε μια δραστηριότητα</h2><span class="small muted">30 αποστολές</span></div>
    <div class="world-caption">🗺️ Διάλεξε κόσμο ή πάτησε «Παίζω».</div><button class="btn primary quick-play" id="quickPlayBtn" type="button">▶ Παίζω τώρα</button><div class="worlds" id="worldMap"></div><div class="section-head"><h2 id="worldHeading">Αποστολές</h2><span class="small muted" id="worldCounter"></span></div><div class="activities" id="activityList"></div>
   </section>
   <details class="panel extra-panel" id="medalsPanel"><summary>🏅 Μετάλλια και επιτεύγματα <span id="achievementsTotal"></span></summary><div class="achievements" id="achievements"></div></details>
   <section class="panel hidden" id="gamePanel">
    <div class="game-head">
-    <div class="game-title"><span class="emoji" id="gameEmoji">🌷</span><div><h2 id="gameName">Φυτεύω ένα λουλούδι</h2><p id="gameMeta">Δραστηριότητα 1 από 20 • 5 προτάσεις</p></div></div>
+    <div class="game-title"><span class="emoji" id="gameEmoji">🌷</span><div><h2 id="gameName">Φυτεύω ένα λουλούδι</h2><p id="gameMeta">Δραστηριότητα 1 από 30 • 5 προτάσεις</p></div></div>
     <button class="btn soft" id="backBtn">← Όλες οι δραστηριότητες</button>
    </div>
    <div class="instruction">🧩 Βάλε τις προτάσεις στη σωστή σειρά με τα βελάκια ↑ ↓ ή σύροντάς τες.</div>
+   <details class="video-help" id="videoHelp"><summary>🎬 Δες το βίντεο</summary>
+    <div class="video-frame"><iframe id="learningVideo" title="Εκπαιδευτικό βίντεο από το YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <p class="video-note">Χρειάζεται σύνδεση στο διαδίκτυο. Αν δεν παίζει εδώ, <a href="https://www.youtube.com/watch?v=yP-f7b4xWGM" target="_blank" rel="noopener noreferrer">άνοιξέ το στο YouTube</a>.</p>
+   </details>
    <div class="challenge" id="challenge"><strong>🔍 Στοιχείο ιστορίας</strong><div id="challengeText"></div></div><details class="game-options"><summary>⚙️ Επιλογές παιχνιδιού</summary><div class="toolbar"><button class="switch" id="soundToggle" type="button">🔊 Ήχοι: ενεργοί</button><button class="new-story" id="variantBtn" type="button">🔄 Άλλη ιστορία</button><span class="game-hint" id="variantInfo"></span></div></details>
    <div id="robotMap" class="robot-map hidden" aria-label="Χάρτης διαδρομής ρομπότ"><strong>🤖 Δες τη διαδρομή και βάλε τις εντολές στη σωστή σειρά!</strong><p class="small">Το ρομπότ κοιτάζει προς τα πάνω (↑). Πηγαίνει δύο τετράγωνα μπροστά, στρίβει δεξιά και προχωρά ένα ακόμη τετράγωνο για να φτάσει στο αστέρι.</p><div class="robot-grid"><div class="robot-cell">⬜</div><div class="robot-cell">⬜</div><div class="robot-cell">⬜</div><div class="robot-cell">⬜</div><div class="robot-cell">⬜</div><div class="robot-cell path">⬆️</div><div class="robot-cell path">➡️</div><div class="robot-cell goal">⭐</div><div class="robot-cell">⬜</div><div class="robot-cell path">⬆️</div><div class="robot-cell">⬜</div><div class="robot-cell">⬜</div><div class="robot-cell">⬜</div><div class="robot-cell start">🤖</div><div class="robot-cell">⬜</div><div class="robot-cell">⬜</div></div><span class="small">🟩 Αφετηρία · 🟦 Διαδρομή · ⭐ Στόχος</span></div><div class="cards" id="cards" aria-label="Προτάσεις προς ταξινόμηση"></div>
-   <div class="actions"><button class="btn primary" id="checkBtn">Έλεγχος απάντησης</button><button class="btn secondary" id="shuffleBtn">Ανακάτεμα</button><button class="btn soft" id="resetBtn">Από την αρχή</button></div>
+   <div class="actions" id="answerActions"><button class="btn primary" id="checkBtn">Έλεγχος απάντησης</button><button class="btn soft" id="resetBtn">Από την αρχή</button><div class="hidden" id="nextActions"><button class="btn primary" id="nextBtn">Επόμενη δραστηριότητα →</button></div></div>
    <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
-   <div class="actions hidden" id="nextActions"><button class="btn primary" id="nextBtn">Επόμενη δραστηριότητα →</button></div>
   </section>
   <div class="toast" id="toast" role="status" aria-live="polite"></div><div class="confetti-area" id="confettiArea" aria-hidden="true"></div>
   <section class="panel hidden" id="finishPanel">
-   <div class="complete"><div class="big">🏆</div><h2>Μπράβο σου!</h2><p>Ολοκλήρωσες και τις 20 δραστηριότητες. Έβαλες τις ιστορίες στη σωστή σειρά!</p><strong id="finalStars">0 ⭐</strong><div class="actions" style="justify-content:center"><button class="btn primary" id="againBtn">Παίζω ξανά</button></div></div>
+   <div class="complete"><div class="big">🏆</div><h2>Μπράβο σου!</h2><p>Ολοκλήρωσες και τις 30 δραστηριότητες. Έβαλες τις ιστορίες στη σωστή σειρά!</p><strong id="finalStars">0 ⭐</strong><div class="actions" style="justify-content:center"><button class="btn primary" id="againBtn">Παίζω ξανά</button></div></div>
   </section>
-  <details class="panel extra-panel" id="settingsPanel"><summary>⚙️ Ρυθμίσεις μαθητή</summary><p class="small muted">Η πρόοδος αποθηκεύεται αυτόματα σε αυτή τη συσκευή.</p><button class="btn danger small" id="deleteBtn">Διαγραφή λογαριασμού</button></details>
+  <details class="panel extra-panel" id="settingsPanel"><summary>⚙️ Ρυθμίσεις μαθητή</summary><p class="small muted">Η πρόοδος αποθηκεύεται αυτόματα σε αυτή τη συσκευή.</p><button class="btn danger small hidden" id="deleteBtn">Διαγραφή λογαριασμού</button><span class="small muted">Η διαγραφή λογαριασμών γίνεται από τον Εκπαιδευτικό.</span></details>
  </section>
 </main>
 <footer>Δημιουργία: Τσιάλος Δημήτριος · <a href="mailto:tsialdimi@gmail.com" style="color:inherit">tsialdimi@gmail.com</a></footer>
 <script>
 "use strict";
-const activities=[
- {name:"Φυτεύω ένα λουλούδι",emoji:"🌷",steps:["Βάζω λίγο χώμα στη γλάστρα.","Κάνω μια μικρή τρύπα στο χώμα.","Τοποθετώ προσεκτικά τον σπόρο στην τρύπα.","Σκεπάζω τον σπόρο με λίγο χώμα.","Ποτίζω τη γλάστρα με λίγο νερό."]},
- {name:"Ετοιμάζομαι για το σχολείο",emoji:"🎒",steps:["Το ξυπνητήρι χτυπά και σηκώνομαι από το κρεβάτι.","Αφού σηκωθώ, πλένω το πρόσωπό μου και ντύνομαι.","Μόλις ντυθώ, κάθομαι στην κουζίνα και τρώω το πρωινό μου.","Αφού τελειώσω το πρωινό, πλένω τα δόντια μου.","Τέλος, παίρνω την τσάντα μου και φεύγω για το σχολείο."]},
- {name:"Πηγαίνω εκδρομή στο μουσείο",emoji:"🏛️",steps:["Πριν φύγω από το σπίτι, ετοιμάζω το σακίδιο με νερό και κολατσιό.","Όταν φτάνω στο σχολείο, συγκεντρώνομαι με την τάξη μου.","Αφού συγκεντρωθούμε όλοι, επιβιβαζόμαστε στο λεωφορείο.","Μόλις φτάσουμε στο μουσείο, ακούμε τις οδηγίες της ξεναγού.","Στη συνέχεια παρατηρούμε τα εκθέματα και μαθαίνουμε την ιστορία τους."]},
- {name:"Το παραμύθι με τον δράκο",emoji:"🐉",steps:["Ένας μικρός δράκος ζούσε μόνος σε ένα ψηλό βουνό.","Μια μέρα άκουσε μια παράξενη φωνή από το δάσος.","Κατέβηκε από το βουνό για να δει τι είχε συμβεί.","Βρήκε ένα μικρό πουλάκι που είχε χαθεί από τη φωλιά του.","Βοήθησε το πουλάκι να επιστρέψει στη φωλιά του και έγιναν φίλοι."]},
- {name:"Το παραμύθι με την πριγκίπισσα",emoji:"👑",steps:["Μια πριγκίπισσα ζούσε σε ένα κάστρο κοντά στο δάσος.","Ένα πρωί διαπίστωσε πως το μαγικό κλειδί είχε χαθεί.","Ακολούθησε μικρά χρυσά σημάδια που οδηγούσαν στο δάσος.","Βρήκε το κλειδί κάτω από ένα παλιό δέντρο.","Επέστρεψε στο κάστρο και άνοιξε τη μαγική βιβλιοθήκη."]},
- {name:"Φτιάχνω ένα τοστ",emoji:"🥪",steps:["Πλένω τα χέρια μου πριν αρχίσω.","Βάζω δύο φέτες ψωμί σε ένα πιάτο.","Τοποθετώ τυρί και γαλοπούλα πάνω στη μία φέτα.","Σκεπάζω με τη δεύτερη φέτα ψωμιού.","Ζητώ από έναν ενήλικα να με βοηθήσει να ψήσω το τοστ."]},
- {name:"Πλένω σωστά τα χέρια μου",emoji:"🧼",steps:["Βρέχω τα χέρια μου με καθαρό νερό.","Βάζω σαπούνι στις παλάμες μου.","Τρίβω καλά τις παλάμες, τα δάχτυλα και τις άκρες τους.","Ξεπλένω τα χέρια μου με νερό.","Στεγνώνω τα χέρια μου με καθαρή πετσέτα."]},
- {name:"Κατασκευάζω ένα χάρτινο αεροπλάνο",emoji:"✈️",steps:["Παίρνω ένα ορθογώνιο φύλλο χαρτιού.","Διπλώνω το χαρτί στη μέση κατά μήκος και το ανοίγω.","Φέρνω τις δύο επάνω γωνίες προς την κεντρική γραμμή.","Διπλώνω ξανά τις λοξές πλευρές προς το κέντρο.","Διπλώνω το αεροπλάνο στη μέση και σχηματίζω τα φτερά."]},
- {name:"Ετοιμάζω την τσάντα μου",emoji:"📚",steps:["Πρώτα κοιτάζω το πρόγραμμα της αυριανής ημέρας.","Με βάση το πρόγραμμα, διαλέγω τα βιβλία και τα τετράδια που χρειάζομαι.","Αφού συγκεντρώσω τα βιβλία, γεμίζω την κασετίνα με μολύβι, γόμα και ξύστρα.","Έπειτα βάζω στην τσάντα τα βιβλία, τα τετράδια και την κασετίνα.","Τέλος, ελέγχω την τσάντα για να βεβαιωθώ ότι δεν λείπει τίποτα."]},
- {name:"Το ρομπότ βρίσκει τον δρόμο",emoji:"🤖",steps:["Το ρομπότ ξεκινά από την αφετηρία.","Προχωρά δύο βήματα μπροστά.","Στρίβει δεξιά στο μονοπάτι.","Προχωρά ένα ακόμη βήμα μπροστά.","Φτάνει στο σημείο-στόχο και ανάβει το φωτάκι του."]},
- {name:"Η χαμένη γάτα",emoji:"🐈",steps:["Η Μαρία άκουσε ξαφνικά ένα νιαούρισμα στην αυλή.","Ακολουθώντας τον ήχο, κοίταξε πίσω από τις γλάστρες και βρήκε μια μικρή γάτα.","Μόλις τη βρήκε, έφερε ένα μπολ με καθαρό νερό.","Αφού της έδωσε νερό, ρώτησε τους γείτονες αν γνώριζαν τον ιδιοκτήτη της.","Λίγο αργότερα ήρθε η οικογένεια της γάτας και την πήρε με χαρά."]},
- {name:"Μια μέρα στη βιβλιοθήκη",emoji:"📖",steps:["Η τάξη αποφάσισε να επισκεφθεί τη βιβλιοθήκη.","Μόλις έφτασαν, τα παιδιά άκουσαν τις οδηγίες της βιβλιοθηκονόμου.","Αφού άκουσαν τις οδηγίες, διάλεξαν από ένα βιβλίο.","Με τα βιβλία στα χέρια, κάθισαν και διάβασαν τις πρώτες σελίδες.","Στο τέλος επέστρεψαν τα βιβλία στη θέση τους."]},
- {name:"Φτιάχνω λεμονάδα",emoji:"🍋",steps:["Πριν αρχίσω, πλένω καλά τα λεμόνια.","Αφού τα πλύνω, ζητώ από έναν ενήλικα να τα κόψει.","Στη συνέχεια στύβω τα κομμένα λεμόνια σε ένα δοχείο.","Στον χυμό που συγκέντρωσα προσθέτω νερό και ανακατεύω.","Τέλος, σερβίρω την έτοιμη λεμονάδα σε ποτήρια."]},
- {name:"Ο σπόρος γίνεται φυτό",emoji:"🌱",steps:["Ένας σπόρος πέφτει σε υγρό χώμα.","Ο σπόρος απορροφά νερό και αρχίζει να φυτρώνει.","Μια μικρή ρίζα μεγαλώνει μέσα στο χώμα.","Ο βλαστός βγαίνει πάνω από την επιφάνεια.","Ανοίγουν τα πρώτα πράσινα φύλλα."]},
- {name:"Το μυστήριο του χάρτη",emoji:"🗺️",steps:["Ο Πέτρος βρίσκει έναν παλιό χάρτη στο συρτάρι.","Παρατηρεί ένα κόκκινο σημάδι δίπλα στο ποτάμι.","Ακολουθεί το μονοπάτι μαζί με την αδελφή του.","Φτάνουν σε ένα δέντρο με μια κρυμμένη κασετίνα.","Ανοίγουν την κασετίνα και ανακαλύπτουν ένα γράμμα."]},
- {name:"Περνώ με ασφάλεια τον δρόμο",emoji:"🚦",steps:["Σταματώ στο πεζοδρόμιο πριν από τη διάβαση.","Κοιτάζω το φανάρι των πεζών.","Περιμένω μέχρι να ανάψει το πράσινο ανθρωπάκι.","Ελέγχω προσεκτικά ότι τα οχήματα έχουν σταματήσει.","Περνώ τη διάβαση περπατώντας χωρίς να τρέχω."]},
- {name:"Ετοιμάζω μια ζωγραφιά",emoji:"🎨",steps:["Σκέφτομαι και αποφασίζω ότι θα ζωγραφίσω ένα καράβι.","Αφού αποφασίσω το θέμα, παίρνω λευκό χαρτί και μολύβι.","Πάνω στο χαρτί σχεδιάζω πρώτα το περίγραμμα του καραβιού.","Όταν ολοκληρώσω το σχέδιο, το χρωματίζω.","Τέλος, γράφω το όνομά μου και κρεμώ τη ζωγραφιά στον πίνακα."]},
- {name:"Η γιορτή έκπληξη",emoji:"🎂",steps:["Η παρέα αποφασίζει να οργανώσει μια γιορτή έκπληξη.","Για να οργανωθούν, στέλνουν προσκλήσεις και συμφωνούν την ώρα.","Την ημέρα της γιορτής, πριν φτάσει ο φίλος τους, στολίζουν το δωμάτιο.","Μόλις μπαίνει ο φίλος τους, όλοι φωνάζουν «Έκπληξη!».","Αμέσως μετά τραγουδούν και μοιράζονται την τούρτα."]},
- {name:"Σώζω μια πεταλούδα",emoji:"🦋",steps:["Μια πεταλούδα μπαίνει κατά λάθος στην τάξη.","Μόλις τη βλέπουν, τα παιδιά ειδοποιούν τη δασκάλα και κλείνουν τους ανεμιστήρες.","Έπειτα η δασκάλα ανοίγει διάπλατα το παράθυρο.","Αφού ανοίξει το παράθυρο, όλοι απομακρύνονται για να αφήσουν ελεύθερο πέρασμα.","Τότε η πεταλούδα πετά έξω στον κήπο."]},
- {name:"Το πρώτο μου ηλεκτρονικό μήνυμα",emoji:"💌",steps:["Ανοίγω την εφαρμογή ηλεκτρονικού ταχυδρομείου με την επίβλεψη του εκπαιδευτικού.","Πατώ το κουμπί για νέο μήνυμα.","Συμπληρώνω τη διεύθυνση του παραλήπτη.","Γράφω θέμα και ένα ευγενικό μήνυμα.","Ελέγχω το κείμενο και πατώ «Αποστολή»."]}
-];
-
-const alternateStories=[
- {name:"Το μυστικό θερμοκήπιο",emoji:"🌻",clue:"Πρώτα ετοιμάζουμε το μέρος όπου θα μεγαλώσει το φυτό.",steps:["Η Ελένη γεμίζει ένα μικρό γλαστράκι με χώμα.","Ανοίγει μια μικρή λακκούβα στη μέση.","Βάζει μέσα ένα σποράκι ηλίανθου.","Το σκεπάζει απαλά με χώμα.","Ποτίζει και τοποθετεί το γλαστράκι στο φως."]},
- {name:"Το πρωινό του Άρη",emoji:"⏰",clue:"Τι πρέπει να συμβεί πριν φύγει από το σπίτι;",steps:["Το ξυπνητήρι του Άρη χτυπά στις επτά.","Μόλις ξυπνά, σηκώνεται και στρώνει το κρεβάτι.","Αφού στρώσει το κρεβάτι, πλένει το πρόσωπό του και ντύνεται.","Όταν ντυθεί, τρώει το πρωινό του και έπειτα βουρτσίζει τα δόντια του.","Τέλος, παίρνει την τσάντα και πηγαίνει στο σχολείο."]},
- {name:"Επίσκεψη στο πλανητάριο",emoji:"🪐",clue:"Η προβολή αρχίζει μόνο αφού η τάξη φτάσει στο πλανητάριο.",steps:["Η δασκάλα ανακοινώνει την επίσκεψη στο πλανητάριο.","Τα παιδιά συγκεντρώνονται στην αυλή του σχολείου.","Η τάξη μπαίνει στο λεωφορείο.","Φτάνουν στο πλανητάριο και κάθονται στις θέσεις τους.","Παρακολουθούν την προβολή για τους πλανήτες."]},
- {name:"Ο δράκος και το χαμένο αυγό",emoji:"🥚",clue:"Για να επιστρέψει το αυγό, ο δράκος πρέπει πρώτα να το βρει.",steps:["Ένας δράκος ξυπνά και βλέπει ότι λείπει ένα αυγό.","Ψάχνει για πατημασιές έξω από τη σπηλιά.","Ακολουθεί τις πατημασιές προς το ποτάμι.","Βρίσκει το αυγό δίπλα σε έναν θάμνο.","Το μεταφέρει προσεκτικά πίσω στη φωλιά."]},
- {name:"Το μυστήριο του μαγικού καθρέφτη",emoji:"🪞",clue:"Ο καθρέφτης πρέπει να βρεθεί πριν αποκαλυφθεί το μήνυμα.",steps:["Η πριγκίπισσα ακούει ότι χάθηκε ο μαγικός καθρέφτης.","Ανακαλύπτει μια ασημένια κορδέλα στην αίθουσα.","Ακολουθεί την κορδέλα έως τον πύργο.","Βρίσκει τον καθρέφτη μέσα σε ένα παλιό σεντούκι.","Διαβάζει το μυστικό μήνυμα που εμφανίζεται πάνω του."]},
- {name:"Ετοιμάζω ένα σάντουιτς",emoji:"🥙",clue:"Η γέμιση μπαίνει αφού ανοίξουμε το ψωμάκι.",steps:["Πλένω σχολαστικά τα χέρια μου.","Τοποθετώ το ψωμάκι σε καθαρό πιάτο.","Ανοίγω το ψωμάκι στη μέση.","Βάζω μέσα τα υλικά που έχω διαλέξει.","Κλείνω το σάντουιτς και το σερβίρω."]},
- {name:"Καθαρίζω τον πάγκο",emoji:"🧽",clue:"Πρώτα απομακρύνουμε τα πράγματα από την επιφάνεια.",steps:["Πρώτα απομακρύνω όλα τα αντικείμενα από τον πάγκο.","Ανάμεσα στα αντικείμενα βρίσκω σκουπίδια και τα πετώ στον κάδο.","Μόλις αδειάσει ο πάγκος, βρέχω ένα καθαρό πανάκι.","Με το βρεγμένο πανάκι σκουπίζω προσεκτικά την επιφάνεια.","Τέλος, αφήνω τον καθαρό πάγκο να στεγνώσει."]},
- {name:"Φτιάχνω έναν χαρταετό",emoji:"🪁",clue:"Η ουρά προστίθεται αφού σχηματιστεί ο χαρταετός.",steps:["Συγκεντρώνω χαρτί, καλαμάκια και κορδέλες.","Σχηματίζω τον σκελετό του χαρταετού.","Στερεώνω το χρωματιστό χαρτί στον σκελετό.","Προσθέτω την ουρά με τις κορδέλες.","Δένω το σκοινί και ελέγχω την κατασκευή."]},
- {name:"Οργανώνω τη βιβλιοθήκη μου",emoji:"📗",clue:"Για να τοποθετήσω τα βιβλία, πρέπει πρώτα να τα ταξινομήσω.",steps:["Βγάζω όλα τα βιβλία από το ράφι και τα ακουμπώ στο γραφείο.","Όσο το ράφι είναι άδειο, σκουπίζω τη σκόνη του.","Αφού καθαρίσω το ράφι, χωρίζω τα βιβλία του γραφείου ανά θέμα.","Τοποθετώ κάθε ομάδα βιβλίων στο καθαρό ράφι.","Στο τέλος ελέγχω ότι μπορώ να βρω εύκολα κάθε βιβλίο."]},
- {name:"Το ρομπότ στην αποθήκη",emoji:"🦾",clue:"Ακολούθησε την εμφανιζόμενη πίστα του ρομπότ.",steps:["Το ρομπότ ξεκινά από το πράσινο τετράγωνο.","Προχωρά δύο τετράγωνα ευθεία.","Στρίβει δεξιά στη γωνία.","Προχωρά ένα τετράγωνο προς το αστέρι.","Σταματά στον στόχο και ανάβει το φωτάκι του."]},
- {name:"Το μυστήριο των πατημασιών",emoji:"🐾",clue:"Οι πατημασιές αποκαλύπτουν πού κατευθύνθηκε το ζωάκι.",steps:["Η Νίκη ανακαλύπτει λασπωμένες πατημασιές στο μπαλκόνι.","Μόλις τις δει, φωνάζει τον αδελφό της να τις εξετάσουν.","Αφού τις εξετάσουν, ακολουθούν τα ίχνη μέχρι τον κήπο.","Στο τέλος των ιχνών βρίσκουν ένα κουτάβι πίσω από μια γλάστρα.","Έπειτα ειδοποιούν τον ιδιοκτήτη και το κουτάβι επιστρέφει σπίτι."]},
- {name:"Το μυστικό βιβλίο",emoji:"📜",clue:"Για να αποκαλύψουν το μυστικό, πρέπει πρώτα να βρουν το βιβλίο.",steps:["Η Άννα παρατηρεί ένα χαρτάκι κάτω από την πόρτα.","Το χαρτάκι γράφει έναν αριθμό ραφιού.","Η Άννα πηγαίνει στη βιβλιοθήκη και βρίσκει το ράφι.","Εντοπίζει ένα παλιό βιβλίο με χρυσό εξώφυλλο.","Ανοίγει το βιβλίο και ανακαλύπτει έναν κρυφό χάρτη."]},
- {name:"Φρουτοσαλάτα για την παρέα",emoji:"🍎",clue:"Πριν κόψουμε τα φρούτα, πρέπει να τα πλύνουμε.",steps:["Πλένω τα χέρια μου και τα φρούτα.","Ζητώ βοήθεια ενηλίκου για το κόψιμο.","Βάζουμε τα κομμένα φρούτα σε μπολ.","Ανακατεύουμε προσεκτικά τα φρούτα.","Μοιράζουμε τη φρουτοσαλάτα σε μικρά πιάτα."]},
- {name:"Από την κάμπια στην πεταλούδα",emoji:"🐛",clue:"Η χρυσαλλίδα εμφανίζεται πριν από την πεταλούδα.",steps:["Μια πεταλούδα αφήνει αυγά πάνω σε ένα φύλλο.","Από το αυγό βγαίνει μια μικρή κάμπια.","Η κάμπια τρέφεται και μεγαλώνει.","Η κάμπια μεταμορφώνεται σε χρυσαλλίδα.","Από τη χρυσαλλίδα εμφανίζεται η πεταλούδα."]},
- {name:"Η κλοπή της καμπάνας",emoji:"🔔",clue:"Πρώτα διαπιστώνουν την εξαφάνιση και μετά εξετάζουν τα ίχνη.",steps:["Ο φύλακας βλέπει ότι λείπει η μικρή καμπάνα.","Ανακαλύπτει ένα γαλάζιο φτερό δίπλα στη βάση της.","Ακολουθεί τις φωνές των πουλιών προς τον κήπο.","Βλέπει μια καρακάξα και την καμπάνα στη φωλιά της.","Με τη βοήθεια του κηπουρού παίρνει πίσω την καμπάνα."]},
- {name:"Πηγαίνω με ασφάλεια στο πάρκο",emoji:"🚸",clue:"Η διάβαση χρησιμοποιείται αφού ελέγξουμε ότι είναι ασφαλές.",steps:["Φτάνω στο πεζοδρόμιο κοντά στη διάβαση.","Σταματώ πριν πατήσω στον δρόμο.","Παρατηρώ το σήμα των πεζών.","Βεβαιώνομαι ότι τα οχήματα έχουν σταματήσει.","Περνώ τη διάβαση και συνεχίζω προς το πάρκο."]},
- {name:"Ζωγραφίζω ένα ουράνιο τόξο",emoji:"🌈",clue:"Το χρώμα μπαίνει αφού σχεδιάσουμε τα περιγράμματα.",steps:["Αποφασίζω να ζωγραφίσω ένα ουράνιο τόξο.","Παίρνω χαρτί και τα χρώματά μου.","Σχεδιάζω τις καμπύλες του ουράνιου τόξου.","Χρωματίζω μία μία τις λωρίδες.","Δείχνω την ολοκληρωμένη ζωγραφιά στην τάξη."]},
- {name:"Το μυστήριο της τούρτας",emoji:"🕵️",clue:"Το ίχνος από σοκολάτα εμφανίστηκε μετά την εξαφάνιση.",steps:["Η οικογένεια ετοιμάζει μια τούρτα για τη γιορτή και την αφήνει στην κουζίνα.","Όταν επιστρέφουν στην κουζίνα, βλέπουν ότι λείπει ένα κομμάτι.","Καθώς ψάχνουν τι συνέβη, εντοπίζουν μικρές πατημασιές από σοκολάτα.","Ακολουθώντας τις πατημασιές, φτάνουν κάτω από το τραπέζι.","Εκεί βρίσκουν τον μικρό αδελφό με σοκολάτα στο πρόσωπο."]},
- {name:"Η διάσωση του σκαθαριού",emoji:"🐞",clue:"Πρώτα εντοπίζουμε το πρόβλημα, μετά βοηθάμε το ζωάκι.",steps:["Τα παιδιά εντοπίζουν ένα σκαθάρι μέσα στην τάξη.","Μόλις το δουν, ενημερώνουν τη δασκάλα τους.","Η δασκάλα τοποθετεί προσεκτικά ένα διάφανο ποτήρι πάνω από το σκαθάρι.","Χωρίς να σηκώσει το ποτήρι, γλιστρά ένα χαρτόνι κάτω από το στόμιό του.","Κρατώντας το χαρτόνι στη θέση του, μεταφέρει το σκαθάρι στον κήπο και το ελευθερώνει."]},
- {name:"Το μυστηριώδες μήνυμα",emoji:"🔐",clue:"Πρέπει να διαβάσουμε το μήνυμα πριν στείλουμε απάντηση.",steps:["Η δασκάλα ανοίγει μαζί με την τάξη το σχολικό ηλεκτρονικό ταχυδρομείο.","Στα εισερχόμενα ανακαλύπτουν ένα μήνυμα από τη συνεργαζόμενη τάξη.","Ανοίγουν το μήνυμα και διαβάζουν προσεκτικά το περιεχόμενό του.","Αφού το διαβάσουν, συντάσσουν ευγενική απάντηση χωρίς προσωπικά στοιχεία.","Τέλος, η δασκάλα ελέγχει το κείμενο και στέλνει την απάντηση."]}
-];
-
 const $=id=>document.getElementById(id);
-const worlds=[{name:"Καθημερινές περιπέτειες",emoji:"🌼",sub:"Μικρές ιστορίες",start:0},{name:"Παραμυθένια μονοπάτια",emoji:"🏰",sub:"Μαγικά γεγονότα",start:5},{name:"Εργαστήρι εξερευνητών",emoji:"🧭",sub:"Ανακαλύψεις",start:10},{name:"Ακαδημία μυστηρίων",emoji:"🕵️",sub:"Γρίφοι και στοιχεία",start:15}];
-const badgeDefs=[{id:"first",icon:"🥉",title:"Πρώτη αποστολή",desc:"Ολοκλήρωσε μία αποστολή",test:d=>completed(d)>=1},{id:"five",icon:"🥈",title:"Εξερευνητής",desc:"Ολοκλήρωσε 5 αποστολές",test:d=>completed(d)>=5},{id:"ten",icon:"🥇",title:"Αρχηγός αποστολών",desc:"Ολοκλήρωσε 10 αποστολές",test:d=>completed(d)>=10},{id:"all",icon:"🏆",title:"Μεγάλος νικητής",desc:"Ολοκλήρωσε και τις 20",test:d=>completed(d)===20},{id:"star",icon:"🌟",title:"Συλλέκτης αστεριών",desc:"Κέρδισε 30 αστέρια",test:d=>totalStars(d)>=30},{id:"mystery",icon:"🔎",title:"Μικρός ντετέκτιβ",desc:"Ολοκλήρωσε αποστολή μυστηρίου",test:d=>[4,10,14,17].some(i=>d.done[i])},{id:"retry",icon:"🔁",title:"Επίμονος ερευνητής",desc:"Δοκίμασε δεύτερη ιστορία",test:d=>Object.values(d.history||{}).some(a=>Array.isArray(a)&&a.length>=2)},{id:"perfect",icon:"💎",title:"Αλάνθαστος",desc:"Λύσε αποστολή με την πρώτη",test:d=>(d.perfectFirst||0)>0}];
-let student="",data=null,current=0,order=[],solved=false,dragIndex=null,checked=false,attempts=0,activeVariant=0,activeWorld=0,audioEnabled=true;
+/* Το βίντεο φορτώνει μόνο όταν ζητηθεί και σταματά μόλις κλείσει. */
+const videoHelp=document.getElementById("videoHelp");
+const learningVideo=document.getElementById("learningVideo");
+videoHelp.addEventListener("toggle",()=>{
+  if(videoHelp.open){learningVideo.src="https://www.youtube-nocookie.com/embed/yP-f7b4xWGM?rel=0";}
+  else{learningVideo.removeAttribute("src");}
+});
+const activities=[
+  {
+    "name": "Φυτεύω ένα λουλούδι",
+    "emoji": "🌷",
+    "steps": [
+      "Η Μαρία γεμίζει μια άδεια γλάστρα με χώμα.",
+      "Στο χώμα που έβαλε, ανοίγει μια μικρή τρύπα.",
+      "Μέσα στην τρύπα τοποθετεί έναν σπόρο.",
+      "Σκεπάζει τον σπόρο που μόλις φύτεψε με χώμα.",
+      "Αφού τον σκεπάσει, ποτίζει τη γλάστρα."
+    ]
+  },
+  {
+    "name": "Ετοιμάζομαι για το σχολείο",
+    "emoji": "🎒",
+    "steps": [
+      "Πριν φύγω από το σπίτι, γεμίζω το σακίδιό μου με νερό και κολατσιό.",
+      "Παίρνω το έτοιμο σακίδιο και φτάνω στο σχολείο, όπου συγκεντρώνεται η τάξη μου.",
+      "Μόλις συγκεντρωθούμε όλοι, επιβιβαζόμαστε στο λεωφορείο.",
+      "Το λεωφορείο μάς μεταφέρει στο μουσείο, όπου ακούμε πρώτα τις οδηγίες της ξεναγού.",
+      "Αφού ακούσουμε τις οδηγίες, αρχίζουμε να παρατηρούμε τα εκθέματα."
+    ]
+  },
+  {
+    "name": "Πηγαίνω εκδρομή στο μουσείο",
+    "emoji": "🏛️",
+    "steps": [
+      "Πριν φύγω από το σπίτι, ετοιμάζω το σακίδιο με νερό και κολατσιό.",
+      "Όταν φτάνω στο σχολείο, συγκεντρώνομαι με την τάξη μου.",
+      "Αφού συγκεντρωθούμε όλοι, επιβιβαζόμαστε στο λεωφορείο.",
+      "Μόλις φτάσουμε στο μουσείο, ακούμε τις οδηγίες της ξεναγού.",
+      "Στη συνέχεια παρατηρούμε τα εκθέματα και μαθαίνουμε την ιστορία τους."
+    ]
+  },
+  {
+    "name": "Το παραμύθι με τον δράκο",
+    "emoji": "🐉",
+    "steps": [
+      "Ένας μικρός δράκος ζούσε μόνος σε ένα ψηλό βουνό.",
+      "Μια μέρα, ενώ βρισκόταν στο βουνό, άκουσε μια φωνή από το δάσος.",
+      "Για να ανακαλύψει ποιος φώναζε, κατέβηκε από το βουνό στο δάσος.",
+      "Εκεί βρήκε ένα μικρό πουλάκι που είχε χαθεί.",
+      "Αφού το βρήκε, βοήθησε το πουλάκι να επιστρέψει στη φωλιά του."
+    ]
+  },
+  {
+    "name": "Το παραμύθι με την πριγκίπισσα",
+    "emoji": "👑",
+    "steps": [
+      "Μια πριγκίπισσα φύλαγε το μαγικό κλειδί στη βιβλιοθήκη του κάστρου.",
+      "Ένα πρωί διαπίστωσε ότι το μαγικό κλειδί είχε χαθεί.",
+      "Ψάχνοντάς το, βρήκε χρυσά σημάδια και τα ακολούθησε προς το δάσος.",
+      "Στο τέλος των σημαδιών βρήκε το χαμένο κλειδί κάτω από ένα δέντρο.",
+      "Με το κλειδί που βρήκε επέστρεψε στο κάστρο και άνοιξε τη βιβλιοθήκη."
+    ]
+  },
+  {
+    "name": "Φτιάχνω ένα τοστ",
+    "emoji": "🥪",
+    "steps": [
+      "Πριν φτιάξω το τοστ, πλένω τα χέρια μου.",
+      "Με καθαρά χέρια βάζω δύο φέτες ψωμί σε ένα πιάτο.",
+      "Πάνω στη μία φέτα βάζω τυρί και γαλοπούλα.",
+      "Σκεπάζω τα υλικά με τη δεύτερη φέτα ψωμιού.",
+      "Όταν το τοστ είναι έτοιμο, ζητώ από ενήλικα να με βοηθήσει να το ψήσω."
+    ]
+  },
+  {
+    "name": "Πλένω σωστά τα χέρια μου",
+    "emoji": "🧼",
+    "steps": [
+      "Πρώτα βρέχω τα χέρια μου με καθαρό νερό.",
+      "Στα βρεγμένα χέρια βάζω σαπούνι.",
+      "Με το σαπούνι τρίβω καλά παλάμες και δάχτυλα.",
+      "Αφού τα τρίψω, ξεπλένω το σαπούνι με νερό.",
+      "Μόλις ξεπλύνω τα χέρια, τα στεγνώνω με καθαρή πετσέτα."
+    ]
+  },
+  {
+    "name": "Κατασκευάζω ένα χάρτινο αεροπλάνο",
+    "emoji": "✈️",
+    "steps": [
+      "Παίρνω ένα ορθογώνιο φύλλο χαρτιού.",
+      "Διπλώνω το φύλλο στη μέση και το ανοίγω για να φανεί η γραμμή.",
+      "Προς τη γραμμή που δημιουργήθηκε διπλώνω τις επάνω γωνίες.",
+      "Διπλώνω τις λοξές πλευρές που σχηματίστηκαν ξανά προς το κέντρο.",
+      "Τέλος, διπλώνω το χαρτί στη μέση και σχηματίζω τα φτερά."
+    ]
+  },
+  {
+    "name": "Ετοιμάζω την τσάντα μου",
+    "emoji": "📚",
+    "steps": [
+      "Πρώτα κοιτάζω το πρόγραμμα της αυριανής ημέρας.",
+      "Με βάση το πρόγραμμα, διαλέγω τα βιβλία και τα τετράδια που χρειάζομαι.",
+      "Αφού συγκεντρώσω τα βιβλία, γεμίζω την κασετίνα με μολύβι, γόμα και ξύστρα.",
+      "Έπειτα βάζω στην τσάντα τα βιβλία, τα τετράδια και την κασετίνα.",
+      "Τέλος, ελέγχω την τσάντα για να βεβαιωθώ ότι δεν λείπει τίποτα."
+    ]
+  },
+  {
+    "name": "Το ρομπότ βρίσκει τον δρόμο",
+    "emoji": "🤖",
+    "steps": [
+      "Το ρομπότ ξεκινά από το πράσινο τετράγωνο, κοιτάζοντας προς τα πάνω.",
+      "Από την αφετηρία προχωρά δύο τετράγωνα προς τα πάνω.",
+      "Όταν φτάσει στη γωνία της μπλε διαδρομής, στρίβει δεξιά.",
+      "Μετά τη στροφή προχωρά ένα τετράγωνο προς το αστέρι.",
+      "Μόλις φτάσει στο αστέρι, σταματά και ανάβει το φωτάκι του."
+    ]
+  },
+  {
+    "name": "Η χαμένη γάτα",
+    "emoji": "🐈",
+    "steps": [
+      "Η Μαρία ακούει ένα νιαούρισμα στην αυλή.",
+      "Ακολουθεί τον ήχο και βρίσκει μια μικρή γάτα πίσω από τις γλάστρες.",
+      "Μόλις βρει τη γάτα, της φέρνει ένα μπολ με καθαρό νερό.",
+      "Αφού δώσει νερό στη γάτα, ρωτά τους γείτονες αν γνωρίζουν τον ιδιοκτήτη της.",
+      "Ένας γείτονας ειδοποιεί την οικογένεια της γάτας, που έρχεται και την παίρνει."
+    ]
+  },
+  {
+    "name": "Μια μέρα στη βιβλιοθήκη",
+    "emoji": "📖",
+    "steps": [
+      "Η τάξη αποφάσισε να επισκεφθεί τη βιβλιοθήκη.",
+      "Μόλις έφτασαν, τα παιδιά άκουσαν τις οδηγίες της βιβλιοθηκονόμου.",
+      "Αφού άκουσαν τις οδηγίες, διάλεξαν από ένα βιβλίο.",
+      "Με τα βιβλία στα χέρια, κάθισαν και διάβασαν τις πρώτες σελίδες.",
+      "Στο τέλος επέστρεψαν τα βιβλία στη θέση τους."
+    ]
+  },
+  {
+    "name": "Φτιάχνω λεμονάδα",
+    "emoji": "🍋",
+    "steps": [
+      "Πριν αρχίσω, πλένω καλά τα λεμόνια.",
+      "Αφού τα πλύνω, ζητώ από έναν ενήλικα να τα κόψει.",
+      "Στη συνέχεια στύβω τα κομμένα λεμόνια σε ένα δοχείο.",
+      "Στον χυμό που συγκέντρωσα προσθέτω νερό και ανακατεύω.",
+      "Τέλος, σερβίρω την έτοιμη λεμονάδα σε ποτήρια."
+    ]
+  },
+  {
+    "name": "Ο σπόρος γίνεται φυτό",
+    "emoji": "🌱",
+    "steps": [
+      "Ένας σπόρος πέφτει σε υγρό χώμα.",
+      "Απορροφά νερό από το χώμα και αρχίζει να βλασταίνει.",
+      "Πρώτα ξεπροβάλλει από τον σπόρο μια μικρή ρίζα και μεγαλώνει προς τα κάτω.",
+      "Ύστερα ο βλαστός μεγαλώνει προς τα πάνω και βγαίνει από το χώμα.",
+      "Πάνω στον βλαστό που εμφανίστηκε ανοίγουν τα πρώτα πράσινα φύλλα."
+    ]
+  },
+  {
+    "name": "Το μυστήριο του χάρτη",
+    "emoji": "🗺️",
+    "steps": [
+      "Ο Πέτρος βρίσκει έναν παλιό χάρτη μέσα σε ένα συρτάρι.",
+      "Ανοίγει τον χάρτη και παρατηρεί ένα κόκκινο σημάδι δίπλα στο ποτάμι.",
+      "Ακολουθώντας το σημάδι του χάρτη, ξεκινά με την αδελφή του προς το ποτάμι.",
+      "Στο σημείο που δείχνει ο χάρτης βρίσκουν μια κασετίνα κάτω από ένα δέντρο.",
+      "Ανοίγουν την κασετίνα που βρήκαν και ανακαλύπτουν ένα γράμμα."
+    ]
+  },
+  {
+    "name": "Περνώ με ασφάλεια τον δρόμο",
+    "emoji": "🚦",
+    "steps": [
+      "Σταματώ στο πεζοδρόμιο, πριν από τη διάβαση.",
+      "Από εκεί κοιτάζω το φανάρι που είναι για τους πεζούς.",
+      "Επειδή το φανάρι δεν είναι ακόμη πράσινο, περιμένω να ανάψει το πράσινο ανθρωπάκι.",
+      "Μόλις ανάψει το πράσινο, ελέγχω ότι τα οχήματα έχουν σταματήσει.",
+      "Αφού βεβαιωθώ ότι είναι ασφαλές, περνώ τη διάβαση περπατώντας."
+    ]
+  },
+  {
+    "name": "Ετοιμάζω μια ζωγραφιά",
+    "emoji": "🎨",
+    "steps": [
+      "Σκέφτομαι και αποφασίζω ότι θα ζωγραφίσω ένα καράβι.",
+      "Αφού αποφασίσω το θέμα, παίρνω λευκό χαρτί και μολύβι.",
+      "Πάνω στο χαρτί σχεδιάζω πρώτα το περίγραμμα του καραβιού.",
+      "Όταν ολοκληρώσω το σχέδιο, το χρωματίζω.",
+      "Τέλος, γράφω το όνομά μου και κρεμώ τη ζωγραφιά στον πίνακα."
+    ]
+  },
+  {
+    "name": "Η γιορτή έκπληξη",
+    "emoji": "🎂",
+    "steps": [
+      "Η παρέα αποφασίζει να οργανώσει μια γιορτή έκπληξη.",
+      "Για τη γιορτή που αποφάσισαν, στέλνουν προσκλήσεις και ορίζουν την ώρα.",
+      "Όταν φτάσει η συμφωνημένη ημέρα, στολίζουν το δωμάτιο πριν έρθει ο φίλος τους.",
+      "Μόλις ο φίλος μπει στο στολισμένο δωμάτιο, όλοι φωνάζουν «Έκπληξη!».",
+      "Αφού του κάνουν την έκπληξη, τραγουδούν και μοιράζονται την τούρτα."
+    ]
+  },
+  {
+    "name": "Σώζω μια πεταλούδα",
+    "emoji": "🦋",
+    "steps": [
+      "Μια πεταλούδα μπαίνει κατά λάθος στην τάξη.",
+      "Μόλις τη δουν, τα παιδιά ειδοποιούν τη δασκάλα και σταματούν τους ανεμιστήρες.",
+      "Αφού βεβαιωθεί ότι οι ανεμιστήρες σταμάτησαν, η δασκάλα ανοίγει διάπλατα το παράθυρο.",
+      "Μόλις ανοίξει το παράθυρο, όλοι απομακρύνονται για να αφήσουν ελεύθερο πέρασμα.",
+      "Βρίσκοντας ελεύθερο πέρασμα, η πεταλούδα πετά έξω στον κήπο."
+    ]
+  },
+  {
+    "name": "Το πρώτο μου ηλεκτρονικό μήνυμα",
+    "emoji": "💌",
+    "steps": [
+      "Με την επίβλεψη του εκπαιδευτικού ανοίγω το ηλεκτρονικό ταχυδρομείο.",
+      "Μέσα στην εφαρμογή πατώ το κουμπί «Νέο μήνυμα».",
+      "Στο νέο μήνυμα συμπληρώνω τη διεύθυνση του παραλήπτη.",
+      "Αφού συμπληρώσω τον παραλήπτη, γράφω θέμα και ευγενικό κείμενο.",
+      "Όταν τελειώσω το κείμενο, το ελέγχω και πατώ «Αποστολή»."
+    ]
+  },
+  {
+    "name": "Το χαμένο βιβλίο",
+    "emoji": "📕",
+    "steps": [
+      "Η Άννα πηγαίνει στη βιβλιοθήκη για να δανειστεί ένα συγκεκριμένο βιβλίο.",
+      "Ψάχνει στο ράφι όπου θα έπρεπε να βρίσκεται το βιβλίο, αλλά δεν το βρίσκει.",
+      "Επειδή δεν το βρήκε στο ράφι, αναζητά τον τίτλο του στον ηλεκτρονικό κατάλογο.",
+      "Στον κατάλογο βλέπει ότι το βιβλίο βρίσκεται στο γραφείο της βιβλιοθηκονόμου.",
+      "Πηγαίνει στο γραφείο που έδειξε ο κατάλογος, βρίσκει το βιβλίο και το δανείζεται."
+    ]
+  },
+  {
+    "name": "Το μυστικό του φάρου",
+    "emoji": "🌊",
+    "steps": [
+      "Ο φαροφύλακας παρατηρεί ότι το φως του φάρου έχει σβήσει.",
+      "Για να βρει την αιτία, κοιτάζει τις ενδείξεις στον πίνακα ελέγχου.",
+      "Μία από τις ενδείξεις δείχνει βλάβη, οπότε ειδοποιεί τον αρμόδιο τεχνικό.",
+      "Ο τεχνικός που ειδοποιήθηκε ακολουθεί τις διαδικασίες ασφαλείας και αποκαθιστά τη βλάβη.",
+      "Αφού αποκατασταθεί η βλάβη, το φως του φάρου ανάβει ξανά."
+    ]
+  },
+  {
+    "name": "Η αποστολή στον Άρη",
+    "emoji": "🚀",
+    "steps": [
+      "Οι αστροναύτες ετοιμάζουν τον πύραυλο στη βάση εκτόξευσης.",
+      "Μόλις ολοκληρωθούν οι έλεγχοι του πυραύλου, γίνεται η εκτόξευση.",
+      "Μετά το διαστημικό ταξίδι, το σκάφος πλησιάζει τον Άρη.",
+      "Από κοντά στον Άρη, το σκάφος κατεβαίνει και προσεδαφίζεται στην προγραμματισμένη περιοχή.",
+      "Αφού προσεδαφιστεί το σκάφος, βγαίνει το ρομποτικό όχημα και στέλνει φωτογραφίες."
+    ]
+  },
+  {
+    "name": "Το μυστήριο της σχολικής αυλής",
+    "emoji": "🔍",
+    "steps": [
+      "Τα παιδιά βρίσκουν ένα παράξενο χαρτάκι κάτω από το παγκάκι.",
+      "Διαβάζοντας το χαρτάκι, μαθαίνουν ότι το επόμενο στοιχείο είναι στη μεγάλη ελιά.",
+      "Πηγαίνουν στη μεγάλη ελιά και βρίσκουν ένα κλειστό κουτί.",
+      "Ανοίγουν το κουτί και ανακαλύπτουν έναν χάρτη προς τη βιβλιοθήκη.",
+      "Χρησιμοποιώντας τον χάρτη που βρήκαν, πηγαίνουν στη βιβλιοθήκη και βρίσκουν το έπαθλο."
+    ]
+  },
+  {
+    "name": "Συνδέω τα περιφερειακά του υπολογιστή",
+    "emoji": "🖥️",
+    "steps": [
+      "Πριν από τις συνδέσεις, ο εκπαιδευτικός φροντίζει να είναι κλειστός και αποσυνδεδεμένος ο υπολογιστής.",
+      "Όταν βεβαιωθεί ότι είναι αποσυνδεδεμένος, μας δείχνει τις θύρες της κεντρικής μονάδας.",
+      "Αφού μας δείξει τις θύρες, συνδέουμε με την καθοδήγησή του την οθόνη στην κατάλληλη υποδοχή.",
+      "Με την οθόνη συνδεδεμένη, συνδέουμε το πληκτρολόγιο και το ποντίκι.",
+      "Ο εκπαιδευτικός ελέγχει όλες τις συνδέσεις, συνδέει με ασφάλεια την τροφοδοσία και εκκινεί τον υπολογιστή."
+    ]
+  },
+  {
+    "name": "Ο κώδικας της κλειδωμένης πόρτας",
+    "emoji": "🔐",
+    "steps": [
+      "Ο εξερευνητής φτάνει μπροστά σε μια κλειδωμένη πόρτα με πληκτρολόγιο.",
+      "Δίπλα στο πληκτρολόγιο ανακαλύπτει ένα σημείωμα με τρεις γρίφους.",
+      "Διαβάζει το σημείωμα, λύνει τους γρίφους και γράφει τους αριθμούς.",
+      "Πληκτρολογεί τους αριθμούς που βρήκε στην κλειδαριά.",
+      "Μόλις πληκτρολογήσει τον σωστό κωδικό, η πόρτα ανοίγει."
+    ]
+  },
+  {
+    "name": "Η γέφυρα του δάσους",
+    "emoji": "🌉",
+    "steps": [
+      "Οι πεζοπόροι φτάνουν σε ένα ποτάμι και βρίσκουν κλειστή τη γέφυρα.",
+      "Δίπλα στην κλειστή γέφυρα διαβάζουν μια πινακίδα με ασφαλή παράκαμψη.",
+      "Ακολουθούν τα μπλε σημάδια της παράκαμψης που γράφει η πινακίδα.",
+      "Τα σημάδια τούς οδηγούν σε μια δεύτερη, ανοιχτή γέφυρα.",
+      "Περνούν τη δεύτερη γέφυρα και συνεχίζουν την εκδρομή τους."
+    ]
+  },
+  {
+    "name": "Το πείραμα με τον πάγο",
+    "emoji": "🧊",
+    "steps": [
+      "Ο μαθητής έβαλε ένα παγάκι σε διάφανο ποτήρι.",
+      "Αμέσως μετά τοποθέτησε το ποτήρι στο τραπέζι και σημείωσε την ώρα.",
+      "Ύστερα από λίγα λεπτά παρατήρησε ότι το παγάκι άρχισε να λιώνει.",
+      "Συνέχισε να περιμένει μέχρι να λιώσει όλο το παγάκι.",
+      "Μόλις έμεινε μόνο νερό στο ποτήρι, κατέγραψε το αποτέλεσμα στο τετράδιό του."
+    ]
+  },
+  {
+    "name": "Η κρυμμένη κασετίνα",
+    "emoji": "🎒",
+    "steps": [
+      "Η Δανάη αφήνει την κασετίνα της στο θρανίο και βγαίνει για διάλειμμα.",
+      "Όταν επιστρέφει από το διάλειμμα, βλέπει ότι η κασετίνα λείπει.",
+      "Επειδή δεν τη βρίσκει, ρωτά τη δασκάλα μήπως την έχει δει.",
+      "Η δασκάλα τής δείχνει το κουτί με τα ξεχασμένα αντικείμενα.",
+      "Η Δανάη ψάχνει στο κουτί, βρίσκει την κασετίνα και την παίρνει πίσω."
+    ]
+  },
+  {
+    "name": "Ο μεγάλος τελικός των εξερευνητών",
+    "emoji": "🏆",
+    "steps": [
+      "Η ομάδα έλαβε έναν χάρτη με τον τελευταίο γρίφο της περιπέτειας.",
+      "Έλυσε τον γρίφο του χάρτη και έτσι ανακάλυψε το σημείο εκκίνησης.",
+      "Όταν έφτασε στο σημείο εκκίνησης, βρήκε ένα κλειδί και μια οδηγία προς το σεντούκι.",
+      "Ακολουθώντας την οδηγία, εντόπισε το σεντούκι και το άνοιξε με το κλειδί.",
+      "Μέσα στο ανοιχτό σεντούκι βρήκε το χρυσό μετάλλιο και ολοκλήρωσε την περιπέτεια."
+    ]
+  }
+];
+const alternateStories=[
+  {
+    "name": "Το μυστικό θερμοκήπιο",
+    "emoji": "🌻",
+    "clue": "Πρώτα ετοιμάζουμε το μέρος όπου θα μεγαλώσει το φυτό.",
+    "steps": [
+      "Η Ελένη γεμίζει ένα μικρό γλαστράκι με χώμα.",
+      "Στο κέντρο του χώματος ανοίγει μια μικρή λακκούβα.",
+      "Μέσα στη λακκούβα βάζει έναν σπόρο ηλίανθου.",
+      "Σκεπάζει τον σπόρο που έβαλε με λίγο χώμα.",
+      "Αφού σκεπάσει τον σπόρο, ποτίζει το γλαστράκι."
+    ]
+  },
+  {
+    "name": "Το πρωινό του Άρη",
+    "emoji": "⏰",
+    "clue": "Τι πρέπει να συμβεί πριν φύγει από το σπίτι;",
+    "steps": [
+      "Το ξυπνητήρι του Άρη χτυπά στις επτά.",
+      "Μόλις ξυπνά, σηκώνεται και στρώνει το κρεβάτι.",
+      "Αφού στρώσει το κρεβάτι, πλένει το πρόσωπό του και ντύνεται.",
+      "Όταν ντυθεί, τρώει το πρωινό του και έπειτα βουρτσίζει τα δόντια του.",
+      "Τέλος, παίρνει την τσάντα και πηγαίνει στο σχολείο."
+    ]
+  },
+  {
+    "name": "Επίσκεψη στο πλανητάριο",
+    "emoji": "🪐",
+    "clue": "Η προβολή αρχίζει μόνο αφού η τάξη φτάσει στο πλανητάριο.",
+    "steps": [
+      "Η δασκάλα ανακοινώνει στην τάξη ότι θα επισκεφθούν το πλανητάριο.",
+      "Την ημέρα που ανακοίνωσε η δασκάλα, τα παιδιά συγκεντρώνονται στην αυλή του σχολείου.",
+      "Αφού συγκεντρωθούν όλοι, μπαίνουν στο λεωφορείο.",
+      "Το λεωφορείο τούς μεταφέρει στο πλανητάριο, όπου τα παιδιά κάθονται στις θέσεις τους.",
+      "Μόλις καθίσουν, αρχίζει η προβολή για τους πλανήτες."
+    ]
+  },
+  {
+    "name": "Ο δράκος και το χαμένο αυγό",
+    "emoji": "🥚",
+    "clue": "Για να επιστρέψει το αυγό, ο δράκος πρέπει πρώτα να το βρει.",
+    "steps": [
+      "Ένας δράκος ξυπνά και βλέπει ότι λείπει ένα αυγό από τη φωλιά.",
+      "Ψάχνοντας το χαμένο αυγό, βρίσκει πατημασιές έξω από τη σπηλιά.",
+      "Ακολουθεί τις πατημασιές που βρήκε μέχρι το ποτάμι.",
+      "Στην άκρη του ποταμιού ανακαλύπτει το αυγό δίπλα σε έναν θάμνο.",
+      "Αφού βρει το αυγό, το μεταφέρει προσεκτικά πίσω στη φωλιά."
+    ]
+  },
+  {
+    "name": "Το μυστήριο του μαγικού καθρέφτη",
+    "emoji": "🪞",
+    "clue": "Ο καθρέφτης πρέπει να βρεθεί πριν αποκαλυφθεί το μήνυμα.",
+    "steps": [
+      "Η πριγκίπισσα μαθαίνει ότι ο μαγικός καθρέφτης χάθηκε από το κάστρο.",
+      "Ψάχνοντας για τον καθρέφτη, ανακαλύπτει μια ασημένια κορδέλα.",
+      "Ακολουθώντας την κορδέλα, φτάνει στον παλιό πύργο.",
+      "Μέσα στον πύργο βρίσκει τον καθρέφτη σε ένα σεντούκι.",
+      "Μόλις βγάλει τον καθρέφτη, βλέπει πάνω του ένα μυστικό μήνυμα."
+    ]
+  },
+  {
+    "name": "Ετοιμάζω ένα σάντουιτς",
+    "emoji": "🥙",
+    "clue": "Η γέμιση μπαίνει αφού ανοίξουμε το ψωμάκι.",
+    "steps": [
+      "Πριν φτιάξω το σάντουιτς, πλένω τα χέρια μου.",
+      "Με καθαρά χέρια τοποθετώ ένα ψωμάκι σε πιάτο.",
+      "Ανοίγω στη μέση το ψωμάκι που έβαλα στο πιάτο.",
+      "Μέσα στο ανοιχτό ψωμάκι προσθέτω τα υλικά.",
+      "Αφού βάλω τη γέμιση, κλείνω το σάντουιτς και το σερβίρω."
+    ]
+  },
+  {
+    "name": "Καθαρίζω τον πάγκο",
+    "emoji": "🧽",
+    "clue": "Πρώτα απομακρύνουμε τα πράγματα από την επιφάνεια.",
+    "steps": [
+      "Πρώτα βγάζω όλα τα αντικείμενα από τον πάγκο.",
+      "Στα αντικείμενα που έβγαλα βρίσκω σκουπίδια και τα πετώ.",
+      "Όταν τελειώσω με τα σκουπίδια, βρέχω ένα καθαρό πανάκι.",
+      "Με το βρεγμένο πανάκι σκουπίζω τον άδειο πάγκο.",
+      "Αφού σκουπίσω την επιφάνεια, την αφήνω να στεγνώσει."
+    ]
+  },
+  {
+    "name": "Φτιάχνω έναν χαρταετό",
+    "emoji": "🪁",
+    "clue": "Η ουρά προστίθεται αφού σχηματιστεί ο χαρταετός.",
+    "steps": [
+      "Συγκεντρώνω χαρτί, καλαμάκια και κορδέλες για τον χαρταετό.",
+      "Με τα καλαμάκια που συγκέντρωσα σχηματίζω τον σκελετό.",
+      "Στερεώνω το χρωματιστό χαρτί πάνω στον έτοιμο σκελετό.",
+      "Στον καλυμμένο σκελετό προσθέτω την ουρά με τις κορδέλες.",
+      "Αφού προσθέσω την ουρά, δένω το σκοινί και ελέγχω τον χαρταετό."
+    ]
+  },
+  {
+    "name": "Οργανώνω τη βιβλιοθήκη μου",
+    "emoji": "📗",
+    "clue": "Για να τοποθετήσω τα βιβλία, πρέπει πρώτα να τα ταξινομήσω.",
+    "steps": [
+      "Βγάζω όλα τα βιβλία από το ράφι και τα ακουμπώ στο γραφείο.",
+      "Ενώ το ράφι είναι άδειο, το καθαρίζω από τη σκόνη.",
+      "Αφού καθαρίσω το ράφι, χωρίζω σε ομάδες τα βιβλία που βρίσκονται στο γραφείο.",
+      "Παίρνω μία μία τις ομάδες που έφτιαξα και τις τοποθετώ στο καθαρό ράφι.",
+      "Μόλις τοποθετήσω όλα τα βιβλία, ελέγχω αν μπορώ να βρω εύκολα το καθένα."
+    ]
+  },
+  {
+    "name": "Το ρομπότ στην αποθήκη",
+    "emoji": "🦾",
+    "clue": "Ακολούθησε την εμφανιζόμενη πίστα του ρομπότ.",
+    "steps": [
+      "Το ρομπότ βρίσκεται στο πράσινο τετράγωνο και κοιτάζει προς τα πάνω.",
+      "Από εκεί προχωρά δύο τετράγωνα ευθεία.",
+      "Στη γωνία της διαδρομής στρίβει δεξιά.",
+      "Αφού στρίψει, προχωρά ένα τετράγωνο προς το αστέρι.",
+      "Στο αστέρι σταματά και ανάβει το φωτάκι του."
+    ]
+  },
+  {
+    "name": "Το μυστήριο των πατημασιών",
+    "emoji": "🐾",
+    "clue": "Οι πατημασιές αποκαλύπτουν πού κατευθύνθηκε το ζωάκι.",
+    "steps": [
+      "Η Νίκη ανακαλύπτει λασπωμένες πατημασιές στο μπαλκόνι.",
+      "Μόλις τις δει, φωνάζει τον αδελφό της να τις εξετάσουν.",
+      "Αφού τις εξετάσουν, ακολουθούν τα ίχνη μέχρι τον κήπο.",
+      "Στο τέλος των ιχνών βρίσκουν ένα κουτάβι πίσω από μια γλάστρα.",
+      "Έπειτα ειδοποιούν τον ιδιοκτήτη και το κουτάβι επιστρέφει σπίτι."
+    ]
+  },
+  {
+    "name": "Το μυστικό βιβλίο",
+    "emoji": "📜",
+    "clue": "Για να αποκαλύψουν το μυστικό, πρέπει πρώτα να βρουν το βιβλίο.",
+    "steps": [
+      "Η Άννα βρίσκει ένα μικρό σημείωμα κάτω από την πόρτα.",
+      "Ανοίγει το σημείωμα και διαβάζει έναν αριθμό ραφιού.",
+      "Χρησιμοποιώντας τον αριθμό, βρίσκει το σωστό ράφι στη βιβλιοθήκη.",
+      "Σε αυτό το ράφι εντοπίζει ένα παλιό βιβλίο με χρυσό εξώφυλλο.",
+      "Ανοίγει το βιβλίο που βρήκε και ανακαλύπτει έναν κρυφό χάρτη."
+    ]
+  },
+  {
+    "name": "Φρουτοσαλάτα για την παρέα",
+    "emoji": "🍎",
+    "clue": "Πριν κόψουμε τα φρούτα, πρέπει να τα πλύνουμε.",
+    "steps": [
+      "Πριν ετοιμάσω τη φρουτοσαλάτα, πλένω τα χέρια και τα φρούτα.",
+      "Μετά το πλύσιμο, ζητώ βοήθεια ενηλίκου για να κόψουμε τα φρούτα.",
+      "Βάζουμε τα κομμένα φρούτα μέσα σε ένα μεγάλο μπολ.",
+      "Αφού μπουν όλα στο μπολ, τα ανακατεύουμε προσεκτικά.",
+      "Όταν ανακατευτούν, μοιράζουμε τη φρουτοσαλάτα σε μικρά πιάτα."
+    ]
+  },
+  {
+    "name": "Από την κάμπια στην πεταλούδα",
+    "emoji": "🐛",
+    "clue": "Η χρυσαλλίδα εμφανίζεται πριν από την πεταλούδα.",
+    "steps": [
+      "Μια πεταλούδα αφήνει αυγά πάνω σε ένα φύλλο.",
+      "Από το αυγό βγαίνει μια μικρή κάμπια.",
+      "Η κάμπια τρέφεται και μεγαλώνει.",
+      "Η κάμπια μεταμορφώνεται σε χρυσαλλίδα.",
+      "Από τη χρυσαλλίδα εμφανίζεται η πεταλούδα."
+    ]
+  },
+  {
+    "name": "Η κλοπή της καμπάνας",
+    "emoji": "🔔",
+    "clue": "Πρώτα διαπιστώνουν την εξαφάνιση και μετά εξετάζουν τα ίχνη.",
+    "steps": [
+      "Ο φύλακας διαπιστώνει ότι η μικρή καμπάνα λείπει από τη θέση της.",
+      "Ψάχνοντας εκεί όπου βρισκόταν η καμπάνα, βρίσκει ένα γαλάζιο φτερό.",
+      "Την ώρα που εξετάζει το φτερό, ακούει δυνατές φωνές από πουλιά στον κήπο.",
+      "Ακολουθεί τις φωνές μέχρι ένα δέντρο και βλέπει την καμπάνα μέσα στη φωλιά μιας καρακάξας.",
+      "Αφού εντοπίσει τη φωλιά με την καμπάνα, ζητά βοήθεια για να την πάρει πίσω."
+    ]
+  },
+  {
+    "name": "Πηγαίνω με ασφάλεια στο πάρκο",
+    "emoji": "🚸",
+    "clue": "Η διάβαση χρησιμοποιείται αφού ελέγξουμε ότι είναι ασφαλές.",
+    "steps": [
+      "Φτάνω στο πεζοδρόμιο, μπροστά στη διάβαση.",
+      "Πριν μπω στον δρόμο, σταματώ στο άκρο του πεζοδρομίου.",
+      "Ενώ περιμένω, κοιτάζω το φανάρι μέχρι να ανάψει πράσινο για πεζούς.",
+      "Όταν ανάψει το πράσινο, ελέγχω ότι τα οχήματα έχουν σταματήσει.",
+      "Αφού βεβαιωθώ ότι είναι ασφαλές, περνώ στη διάβαση προς το πάρκο."
+    ]
+  },
+  {
+    "name": "Ζωγραφίζω ένα ουράνιο τόξο",
+    "emoji": "🌈",
+    "clue": "Το χρώμα μπαίνει αφού σχεδιάσουμε τα περιγράμματα.",
+    "steps": [
+      "Αποφασίζω ότι θα ζωγραφίσω ένα ουράνιο τόξο.",
+      "Για τη ζωγραφιά που αποφάσισα, παίρνω χαρτί και χρώματα.",
+      "Στο χαρτί σχεδιάζω τις καμπύλες του ουράνιου τόξου.",
+      "Μόλις τελειώσω τις καμπύλες, χρωματίζω τις λωρίδες τους.",
+      "Όταν ολοκληρώσω το χρωμάτισμα, δείχνω τη ζωγραφιά στην τάξη."
+    ]
+  },
+  {
+    "name": "Το μυστήριο της τούρτας",
+    "emoji": "🕵️",
+    "clue": "Το ίχνος από σοκολάτα εμφανίστηκε μετά την εξαφάνιση.",
+    "steps": [
+      "Η οικογένεια ετοιμάζει μια τούρτα για τη γιορτή και την αφήνει στην κουζίνα.",
+      "Όταν επιστρέφουν στην κουζίνα, βλέπουν ότι λείπει ένα κομμάτι.",
+      "Καθώς ψάχνουν τι συνέβη, εντοπίζουν μικρές πατημασιές από σοκολάτα.",
+      "Ακολουθώντας τις πατημασιές, φτάνουν κάτω από το τραπέζι.",
+      "Εκεί βρίσκουν τον μικρό αδελφό με σοκολάτα στο πρόσωπο."
+    ]
+  },
+  {
+    "name": "Η διάσωση του σκαθαριού",
+    "emoji": "🐞",
+    "clue": "Πρώτα εντοπίζουμε το πρόβλημα, μετά βοηθάμε το ζωάκι.",
+    "steps": [
+      "Τα παιδιά εντοπίζουν ένα σκαθάρι μέσα στην τάξη.",
+      "Μόλις το δουν, ενημερώνουν τη δασκάλα τους.",
+      "Η δασκάλα τοποθετεί προσεκτικά ένα διάφανο ποτήρι πάνω από το σκαθάρι.",
+      "Χωρίς να σηκώσει το ποτήρι, γλιστρά ένα χαρτόνι κάτω από το στόμιό του.",
+      "Κρατώντας το χαρτόνι στη θέση του, μεταφέρει το σκαθάρι στον κήπο και το ελευθερώνει."
+    ]
+  },
+  {
+    "name": "Το μυστηριώδες μήνυμα",
+    "emoji": "🔐",
+    "clue": "Πρέπει να διαβάσουμε το μήνυμα πριν στείλουμε απάντηση.",
+    "steps": [
+      "Η δασκάλα ανοίγει μαζί με την τάξη το σχολικό ηλεκτρονικό ταχυδρομείο.",
+      "Στα εισερχόμενα ανακαλύπτουν ένα μήνυμα από τη συνεργαζόμενη τάξη.",
+      "Ανοίγουν το μήνυμα και διαβάζουν προσεκτικά το περιεχόμενό του.",
+      "Αφού το διαβάσουν, συντάσσουν ευγενική απάντηση χωρίς προσωπικά στοιχεία.",
+      "Τέλος, η δασκάλα ελέγχει το κείμενο και στέλνει την απάντηση."
+    ]
+  },
+  {
+    "name": "Η ξεχασμένη συνταγή",
+    "emoji": "🧁",
+    "steps": [
+      "Ο σεφ αποφάσισε να φτιάξει κεκάκια για τη γιορτή.",
+      "Πριν αρχίσει, αναζήτησε στο βιβλίο την αγαπημένη του συνταγή.",
+      "Αφού βρήκε τη συνταγή, συγκέντρωσε τα υλικά που έγραφε.",
+      "Ακολούθησε τα βήματα μαζί με έναν ενήλικα και έψησαν τα κεκάκια.",
+      "Όταν κρύωσαν, τα τοποθέτησαν στην πιατέλα της γιορτής."
+    ]
+  },
+  {
+    "name": "Το σβηστό φως του κάστρου",
+    "emoji": "🏰",
+    "steps": [
+      "Οι φύλακες βλέπουν ότι ο φωτισμός του ρολογιού του κάστρου έχει σβήσει.",
+      "Μόλις το αντιληφθούν, ειδοποιούν τον υπεύθυνο συντήρησης.",
+      "Ο υπεύθυνος έρχεται και ελέγχει την παροχή ρεύματος.",
+      "Αφού εντοπίσει τη βλάβη, την αποκαθιστά και δοκιμάζει τον φωτισμό.",
+      "Όταν ολοκληρωθεί η δοκιμή, το ρολόι φωτίζεται ξανά."
+    ]
+  },
+  {
+    "name": "Το ρομπότ εξερευνά τη Σελήνη",
+    "emoji": "🌕",
+    "steps": [
+      "Οι μηχανικοί ετοίμασαν το σεληνιακό ρομπότ στη Γη.",
+      "Το ρομπότ ταξίδεψε με διαστημικό σκάφος προς τη Σελήνη.",
+      "Μετά την προσεδάφιση, βγήκε στην επιφάνεια της Σελήνης.",
+      "Πλησίασε έναν βράχο και τον φωτογράφισε με την κάμερά του.",
+      "Έστειλε τη φωτογραφία στους επιστήμονες που περίμεναν στη Γη."
+    ]
+  },
+  {
+    "name": "Το χαμένο έπαθλο",
+    "emoji": "🥇",
+    "steps": [
+      "Οι μαθητές ανακαλύπτουν ότι το έπαθλο του παιχνιδιού λείπει από την τάξη.",
+      "Ψάχνοντάς το, βρίσκουν ένα σημείωμα με το σήμα της βιβλιοθήκης.",
+      "Ακολουθώντας το στοιχείο του σημειώματος, πηγαίνουν στη βιβλιοθήκη.",
+      "Εκεί η βιβλιοθηκονόμος τούς δείχνει το κουτί όπου έχει βάλει το έπαθλο.",
+      "Μόλις βρουν το έπαθλο μέσα στο κουτί, το επιστρέφουν στην τάξη."
+    ]
+  },
+  {
+    "name": "Το πρώτο μάθημα υπολογιστών",
+    "emoji": "⌨️",
+    "steps": [
+      "Η εκπαιδευτικός δείχνει στους μαθητές το ποντίκι του υπολογιστή.",
+      "Αφού τους το δείξει, εξηγεί πώς το κρατάμε σωστά.",
+      "Μετά την εξήγηση, οι μαθητές μετακινούν τον δείκτη με το ποντίκι.",
+      "Αφού εξασκηθούν, ανοίγουν με βοήθεια ένα πρόγραμμα ζωγραφικής.",
+      "Στο πρόγραμμα φτιάχνουν μια ζωγραφιά και στο τέλος την αποθηκεύουν."
+    ]
+  },
+  {
+    "name": "Το μήνυμα στον υπολογιστή",
+    "emoji": "💻",
+    "steps": [
+      "Η Μυρτώ βλέπει στην οθόνη ένα μήνυμα που περιέχει έναν παράξενο κωδικό.",
+      "Μέσα στο ίδιο μήνυμα διαβάζει την οδηγία να αντιστοιχίσει αριθμούς σε γράμματα.",
+      "Ακολουθώντας την οδηγία, χρησιμοποιεί τον πίνακα αντιστοίχισης και αποκωδικοποιεί μια λέξη.",
+      "Πληκτρολογεί τη λέξη που ανακάλυψε στο ειδικό πεδίο.",
+      "Όταν πατήσει επιβεβαίωση, το πρόγραμμα εμφανίζει συγχαρητήρια και την επόμενη αποστολή."
+    ]
+  },
+  {
+    "name": "Η ασφαλής διαδρομή",
+    "emoji": "🥾",
+    "steps": [
+      "Οι φίλοι αποφασίζουν να περπατήσουν σε ένα σηματοδοτημένο μονοπάτι.",
+      "Πριν ξεκινήσουν τη διαδρομή που επέλεξαν, ενημερώνουν τον υπεύθυνο και παίρνουν τον χάρτη.",
+      "Όταν φτάσουν στην πρώτη διασταύρωση, συμβουλεύονται τον χάρτη που πήραν.",
+      "Ακολουθούν το μονοπάτι που δείχνει ο χάρτης και φτάνουν σε ένα ξέφωτο.",
+      "Από το ξέφωτο επιστρέφουν μαζί στην αφετηρία."
+    ]
+  },
+  {
+    "name": "Παρατηρώ την εξάτμιση",
+    "emoji": "💧",
+    "steps": [
+      "Ο μαθητής γεμίζει δύο ίδια πιατάκια με ίση ποσότητα νερού.",
+      "Αφού τα γεμίσει, βάζει το ένα στον ήλιο και το άλλο στη σκιά.",
+      "Μερικές ώρες αργότερα ελέγχει πόσο νερό έχει απομείνει στα δύο πιατάκια.",
+      "Από τις ποσότητες που παρατήρησε σημειώνει ποιο πιατάκι έχει λιγότερο νερό.",
+      "Αφού σημειώσει το αποτέλεσμα, το συζητά με τη δασκάλα του."
+    ]
+  },
+  {
+    "name": "Το ξεχασμένο μολύβι",
+    "emoji": "✏️",
+    "steps": [
+      "Ο Μάριος ανοίγει την κασετίνα του και βλέπει ότι λείπει το αγαπημένο του μολύβι.",
+      "Επειδή το μολύβι λείπει, θυμάται ότι το χρησιμοποίησε στο μάθημα της ζωγραφικής.",
+      "Γι’ αυτό ζητά άδεια από τον δάσκαλο και πηγαίνει στην αίθουσα εικαστικών.",
+      "Εκεί εντοπίζει το μολύβι πάνω στο τραπέζι του.",
+      "Μόλις το βρει, το παίρνει και το βάζει ξανά στην κασετίνα του."
+    ]
+  },
+  {
+    "name": "Η τελική αποστολή του ρομπότ",
+    "emoji": "🤖",
+    "steps": [
+      "Ο προγραμματιστής φόρτωσε στο ρομπότ μια διαδρομή με βέλη προς το εργαστήριο.",
+      "Μόλις φορτώθηκε η διαδρομή, το ρομπότ ξεκίνησε από την αφετηρία.",
+      "Ακολουθώντας με τη σειρά τα βέλη, έφτασε στην πόρτα του εργαστηρίου.",
+      "Όταν έφτασε στην πόρτα, σάρωσε με την κάμερά του τον κωδικό που βρισκόταν δίπλα της.",
+      "Αφού αναγνώρισε τον σωστό κωδικό, η πόρτα άνοιξε και το ρομπότ ολοκλήρωσε την αποστολή."
+    ]
+  }
+];
+const worlds=[{name:"Καθημερινές περιπέτειες",emoji:"🌼",sub:"Μικρές ιστορίες",start:0},{name:"Παραμυθένια μονοπάτια",emoji:"🏰",sub:"Μαγικά γεγονότα",start:5},{name:"Εργαστήρι εξερευνητών",emoji:"🧭",sub:"Ανακαλύψεις",start:10},{name:"Ακαδημία μυστηρίων",emoji:"🕵️",sub:"Γρίφοι και στοιχεία",start:15},{name:"Ταξίδια και ανακαλύψεις",emoji:"🚀",sub:"Νέες αποστολές",start:20},{name:"Οι μεγάλοι γρίφοι",emoji:"🏆",sub:"Τελικές δοκιμασίες",start:25}];
+const badgeDefs=[{id:"first",icon:"🥉",title:"Πρώτη αποστολή",desc:"Ολοκλήρωσε μία αποστολή",test:d=>completed(d)>=1},{id:"five",icon:"🥈",title:"Εξερευνητής",desc:"Ολοκλήρωσε 5 αποστολές",test:d=>completed(d)>=5},{id:"ten",icon:"🥇",title:"Αρχηγός αποστολών",desc:"Ολοκλήρωσε 10 αποστολές",test:d=>completed(d)>=10},{id:"twenty",icon:"🎖️",title:"Βετεράνος",desc:"Ολοκλήρωσε 20 αποστολές",test:d=>completed(d)>=20},{id:"all",icon:"🏆",title:"Μεγάλος νικητής",desc:"Ολοκλήρωσε και τις 30",test:d=>completed(d)===30},{id:"star",icon:"🌟",title:"Συλλέκτης αστεριών",desc:"Κέρδισε 30 αστέρια",test:d=>totalStars(d)>=30},{id:"mystery",icon:"🔎",title:"Μικρός ντετέκτιβ",desc:"Ολοκλήρωσε αποστολή μυστηρίου",test:d=>[4,10,14,17].some(i=>d.done[i])},{id:"retry",icon:"🔁",title:"Επίμονος ερευνητής",desc:"Δοκίμασε δεύτερη ιστορία",test:d=>Object.values(d.history||{}).some(a=>Array.isArray(a)&&a.length>=2)},{id:"perfect",icon:"💎",title:"Αλάνθαστος",desc:"Λύσε αποστολή με την πρώτη",test:d=>(d.perfectFirst||0)>0}];
+let student="",studentSection="",studentStorageKey="",data=null,current=0,order=[],solved=false,dragIndex=null,checked=false,attempts=0,activeVariant=0,activeWorld=0,audioEnabled=true;
 const key=name=>"sequence-game-v1:"+name.toLocaleLowerCase("el-GR").trim();
+const profileKey=(name,section)=>"sequence-game-v1:"+section+"::"+name.toLocaleLowerCase("el-GR").trim();
 function fresh(){return {done:{},scores:{},history:{},variants:{},perfectFirst:0}}
-function completed(d){return Object.keys(d.done||{}).filter(i=>Number(i)<20).length}
-function totalStars(d){return Object.entries(d.done||{}).filter(([i])=>Number(i)<20).reduce((a,[,v])=>a+(Number(v.stars)||0),0)}
-function save(){if(student&&data){try{localStorage.setItem(key(student),JSON.stringify(data))}catch(e){showToast("Η πρόοδος δεν αποθηκεύτηκε. Έλεγξε τις ρυθμίσεις του προγράμματος.")}}}
+function completed(d){return Object.keys(d.done||{}).filter(i=>Number(i)<30).length}
+function totalStars(d){return Object.entries(d.done||{}).filter(([i])=>Number(i)<30).reduce((a,[,v])=>a+(Number(v.stars)||0),0)}
+function save(){if(student&&data){try{localStorage.setItem(studentStorageKey||key(student),JSON.stringify(data))}catch(e){showToast("Η πρόοδος δεν αποθηκεύτηκε. Έλεγξε τις ρυθμίσεις του προγράμματος.")}}}
 function storedProfiles(){
- const names=new Map();
+ const profiles=[];
  try{for(let i=0;i<localStorage.length;i++){
   const k=localStorage.key(i);
-  if(k&&k.startsWith("sequence-game-v1:")){
-   const name=k.slice("sequence-game-v1:".length).trim();
-   if(name)names.set(name.toLocaleLowerCase("el-GR"),name);
-  }
+  if(!k||!k.startsWith("sequence-game-v1:"))continue;
+  const suffix=k.slice("sequence-game-v1:".length).trim();
+  if(!suffix)continue;
+  const separator=suffix.indexOf("::");
+  if(separator>=0){
+   const section=suffix.slice(0,separator),name=suffix.slice(separator+2);
+   if(name)profiles.push({name,section,storageKey:k});
+  }else profiles.push({name:suffix,section:"",storageKey:k});
  }}catch(e){}
- return [...names.values()].sort((a,b)=>a.localeCompare(b,"el-GR"));
+ return profiles.sort((a,b)=>a.section.localeCompare(b.section,"el-GR")||a.name.localeCompare(b.name,"el-GR"));
+}
+function updateLoginMode(){
+ const mode=$("existingProfileSelect").value;
+ const creating=mode==="new";
+ $("newStudentFields").classList.toggle("hidden",!creating);
+ $("startBtn").textContent=creating?"🚀 Κάνε λογαριασμό & ξεκίνα!":"🚀 Συνέχισε το παιχνίδι!";
 }
 function renderProfiles(){
- const names=storedProfiles(),root=$("profileChoices");root.replaceChildren();
- $("savedProfiles").classList.toggle("hidden",!names.length);
- names.forEach(name=>{
+ const profiles=storedProfiles(),root=$("profileChoices"),select=$("existingProfileSelect");
+ root.replaceChildren();
+ select.replaceChildren(new Option("✨ Δημιουργία νέου λογαριασμού","new"));
+ $("savedProfiles").classList.toggle("hidden",!profiles.length);
+ profiles.forEach(p=>{
+  const label=p.name+(p.section?" · "+p.section:" · παλιό προφίλ");
+  select.add(new Option(label,p.storageKey));
   const button=document.createElement("button");button.type="button";button.className="profile-choice";
   const avatar=document.createElement("span");avatar.className="avatar";avatar.textContent="🧑‍🚀";
   const info=document.createElement("span");info.className="profile-info";
-  const title=document.createElement("span");title.textContent=name;
-  const sub=document.createElement("small");sub.textContent="Συνέχεια παιχνιδιού";
+  const title=document.createElement("span");title.textContent=p.name;
+  const sub=document.createElement("small");sub.textContent=p.section||"παλιό προφίλ";
   info.append(title,sub);button.append(avatar,info);
-  button.addEventListener("click",()=>load(name));root.append(button);
+  button.addEventListener("click",()=>load(p.name,p.section,p.storageKey));root.append(button);
  });
+ select.value="new";
+ updateLoginMode();
 }
-function load(name){student=name;try{data=JSON.parse(localStorage.getItem(key(name)))||fresh()}catch{data=fresh()}data.done||={};data.scores||={};data.history||={};data.variants||={};data.perfectFirst||=0;$("profileLabel").textContent="🧑‍🚀 Εξερευνητής: "+student;$("loginPanel").classList.add("hidden");$("app").classList.remove("hidden");activeWorld=0;renderEverything();save();const next=activities.findIndex((a,i)=>!data.done[i]&&isUnlocked(i));openActivity(next>=0?next:0)}
+function load(name,section="",storageKey=key(name)){
+ student=name;studentSection=section;studentStorageKey=storageKey;
+ if(document.getElementById("teacherPanel")){document.getElementById("teacherPanel").classList.add("hidden");if(typeof teacherLock==="function")teacherLock()}
+ try{data=JSON.parse(localStorage.getItem(studentStorageKey))||fresh()}catch{data=fresh()}
+ data.done||={};data.scores||={};data.history||={};data.variants||={};data.perfectFirst||=0;
+ $("profileLabel").textContent="🧑‍🚀 "+student+(studentSection?" · "+studentSection:"");
+ $("loginPanel").classList.add("hidden");$("app").classList.remove("hidden");activeWorld=0;
+ renderEverything();save();const next=activities.findIndex((a,i)=>!data.done[i]&&isUnlocked(i));openActivity(next>=0?next:0);
+}
 function renderEverything(){renderStats();renderWorlds();renderList();renderAchievements()}
-function renderStats(){const done=completed(data),stars=totalStars(data),scores=Object.values(data.done).map(x=>x.percent||0);$("doneCount").textContent=done+"/20";$("starCount").textContent=stars+" ⭐";$("bestScore").textContent=scores.length?Math.max(...scores)+"%":"—";$("overallBar").style.width=done/20*100+"%";$("finalStars").textContent=stars+" αστέρια";$("finishPanel").classList.toggle("hidden",done!==20)}
+function renderStats(){const done=completed(data),stars=totalStars(data),scores=Object.values(data.done).map(x=>x.percent||0);$("doneCount").textContent=done+"/30";$("starCount").textContent=stars+" ⭐";$("bestScore").textContent=scores.length?Math.max(...scores)+"%":"—";$("overallBar").style.width=done/30*100+"%";$("finalStars").textContent=stars+" αστέρια";$("finishPanel").classList.toggle("hidden",done!==30)}
 function renderWorlds(){const el=$("worldMap");el.innerHTML="";worlds.forEach((w,idx)=>{let count=Array.from({length:5},(_,j)=>w.start+j).filter(i=>data.done[i]).length;const unlocked=idx===0||Array.from({length:5},(_,j)=>worlds[idx-1].start+j).every(i=>Boolean(data.done[i]));const b=document.createElement("button");b.type="button";b.className="world"+(activeWorld===idx?" active":"");b.disabled=!unlocked;b.innerHTML=`<div class="world-icon">${w.emoji}</div><div class="world-title">${idx+1}. ${w.name}</div><small>${unlocked?w.sub:"🔒 Ξεκλειδώνει με τον προηγούμενο κόσμο"}</small><small>${count}/5 αποστολές ✓</small><div class="world-progress"><span style="width:${count*20}%"></span></div>`;b.addEventListener("click",()=>{activeWorld=idx;renderWorlds();renderList()});el.appendChild(b)})}
 function isUnlocked(i){const idx=Math.floor(i/5);return idx===0||Array.from({length:5},(_,j)=>worlds[idx-1].start+j).every(k=>Boolean(data.done[k]))}
 function renderList(){const root=$("activityList");root.innerHTML="";const w=worlds[activeWorld];$("worldHeading").textContent=w.emoji+" "+w.name;$("worldCounter").textContent="Αποστολές "+(w.start+1)+"–"+(w.start+5);for(let i=w.start;i<w.start+5;i++){const a=activities[i],d=data.done[i],locked=!isUnlocked(i);const b=document.createElement("button");b.type="button";b.disabled=locked;b.className="activity"+(locked?" locked":"")+(current===i&&!$("gamePanel").classList.contains("hidden")?" active":"");const icon=document.createElement("span");icon.className="emoji";icon.textContent=locked?"🔒":a.emoji;const text=document.createElement("span");const title=document.createElement("span");title.className="name";title.textContent=(i+1)+". "+a.name;const small=document.createElement("small");small.textContent=locked?"Ολοκλήρωσε τον προηγούμενο κόσμο":d?"Ολοκληρώθηκε · "+(d.stars||0)+" ⭐":"Νέα αποστολή · 2 ιστορίες";text.append(title,small);b.append(icon,text);if(d){let tick=document.createElement("span");tick.className="medal";tick.textContent="🏅";b.append(tick)}b.addEventListener("click",()=>openActivity(i));root.appendChild(b)}}
@@ -175,27 +937,71 @@ function renderAchievements(){const root=$("achievements");root.innerHTML="";let
 function shuffled(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}if(a.length>1&&a.every((v,i)=>v===arr[i]))[a[0],a[1]]=[a[1],a[0]];return a}
 function story(){return activeVariant===1?alternateStories[current]:activities[current]}
 function selectVariant(i,requested){const history=data.history[i]||[];if(requested!==undefined)return requested;const unplayed=[0,1].filter(v=>!history.includes(v));return unplayed.length?unplayed[Math.floor(Math.random()*unplayed.length)]:((Number(data.variants[i])||0)+1)%2}
-function openActivity(i,requested){if(!isUnlocked(i)){showToast("🔒 Ολοκλήρωσε πρώτα τον προηγούμενο κόσμο!");return}current=i;activeWorld=Math.floor(i/5);activeVariant=selectVariant(i,requested);data.variants[i]=activeVariant;save();solved=false;checked=false;attempts=0;const a=story();order=shuffled(a.steps);$("robotMap").classList.toggle("hidden",i!==9);$("gamePanel").classList.remove("hidden");$("app").classList.add("playing");$("feedback").className="feedback";$("feedback").textContent="";$("nextActions").classList.add("hidden");$("gameEmoji").textContent=a.emoji;$("gameName").textContent=a.name;$("gameMeta").textContent=`Αποστολή ${i+1}/20 • ${order.length} προτάσεις • Ιστορία ${activeVariant+1}/2`;$("challengeText").textContent=a.clue||"Διάβασε όλες τις προτάσεις. Αναζήτησε τις λέξεις που δείχνουν τι έγινε πριν και τι μετά.";$("variantInfo").textContent="Ιστορίες που έχεις λύσει: "+(data.history[i]||[]).length+"/2";$("checkBtn").disabled=false;renderEverything();renderCards();$("gamePanel").scrollIntoView({behavior:"smooth",block:"start"})}
+function openActivity(i,requested){videoHelp.open=false;if(!isUnlocked(i)){showToast("🔒 Ολοκλήρωσε πρώτα τον προηγούμενο κόσμο!");return}current=i;activeWorld=Math.floor(i/5);activeVariant=selectVariant(i,requested);data.variants[i]=activeVariant;save();solved=false;checked=false;attempts=0;const a=story();order=shuffled(a.steps);$("robotMap").classList.toggle("hidden",i!==9);$("gamePanel").classList.remove("hidden");$("app").classList.add("playing");$("feedback").className="feedback";$("feedback").textContent="";$("nextActions").classList.add("hidden");$("gameEmoji").textContent=a.emoji;$("gameName").textContent=a.name;$("gameMeta").textContent=`Αποστολή ${i+1}/30 • ${order.length} προτάσεις • Ιστορία ${activeVariant+1}/2`;$("challengeText").textContent=a.clue||"Διάβασε όλες τις προτάσεις. Αναζήτησε τις λέξεις που δείχνουν τι έγινε πριν και τι μετά.";$("variantInfo").textContent="Ιστορίες που έχεις λύσει: "+(data.history[i]||[]).length+"/2";$("checkBtn").disabled=false;$("checkBtn").classList.remove("hidden");$("resetBtn").classList.remove("hidden");renderEverything();renderCards();$("gamePanel").scrollIntoView({behavior:"smooth",block:"start"})}
 function renderCards(){const root=$("cards");root.innerHTML="";const correct=story().steps;order.forEach((sentence,i)=>{const row=document.createElement("div");row.className="card"+(checked?(sentence===correct[i]?" correct":" wrong"):"");row.draggable=!solved;row.dataset.index=i;row.innerHTML=`<span class="number">${i+1}</span><span class="sentence"></span><span class="move"><button type="button" aria-label="Προς τα πάνω" ${i===0||solved?"disabled":""}>↑</button><button type="button" aria-label="Προς τα κάτω" ${i===order.length-1||solved?"disabled":""}>↓</button></span>`;row.querySelector(".sentence").textContent=sentence;if(checked){const mark=document.createElement("span");mark.className="result-mark";mark.textContent=sentence===correct[i]?"✓":"✕";row.appendChild(mark)}const [up,down]=row.querySelectorAll("button");up.addEventListener("click",()=>move(i,i-1));down.addEventListener("click",()=>move(i,i+1));row.addEventListener("dragstart",e=>{dragIndex=i;row.classList.add("dragging");e.dataTransfer.effectAllowed="move";e.dataTransfer.setData("text/plain",String(i))});row.addEventListener("dragend",()=>{dragIndex=null;row.classList.remove("dragging");document.querySelectorAll(".card").forEach(x=>x.classList.remove("over"))});row.addEventListener("dragover",e=>{if(solved)return;e.preventDefault();row.classList.add("over")});row.addEventListener("dragleave",()=>row.classList.remove("over"));row.addEventListener("drop",e=>{e.preventDefault();row.classList.remove("over");if(!solved)move(dragIndex??Number(e.dataTransfer.getData("text/plain")),i)});root.appendChild(row)})}
 function move(from,to){if(solved||!Number.isInteger(from)||to<0||to>=order.length||from<0||from>=order.length||from===to)return;const [item]=order.splice(from,1);order.splice(to,0,item);checked=false;$("feedback").className="feedback";renderCards()}
 let audioCtx=null;function playSound(win){if(!audioEnabled)return;try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;audioCtx||=new AC();if(audioCtx.state==="suspended")audioCtx.resume();const now=audioCtx.currentTime;const frequencies=win?[523,659,784,1046]:[220,165];frequencies.forEach((freq,i)=>{const osc=audioCtx.createOscillator(),gain=audioCtx.createGain(),at=now+i*.11;osc.type=win?"sine":"triangle";osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,at);gain.gain.exponentialRampToValueAtTime(.09,at+.025);gain.gain.exponentialRampToValueAtTime(.0001,at+.18);osc.connect(gain);gain.connect(audioCtx.destination);osc.start(at);osc.stop(at+.2)})}catch(e){}}
 function confetti(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const area=$("confettiArea");area.textContent="";for(let i=0;i<65;i++){const bit=document.createElement("i");bit.className="confetti-piece";bit.style.left=Math.random()*100+"%";bit.style.background=["#f59e0b","#22c55e","#3b82f6","#ec4899","#8b5cf6"][i%5];bit.style.animationDelay=(Math.random()*.7)+"s";bit.style.animationDuration=(2+Math.random()*1.3)+"s";area.appendChild(bit)}setTimeout(()=>area.textContent="",4300)}
 let toastTimer;function showToast(msg){$("toast").textContent=msg;$("toast").classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2600)}
-function check(){if(solved)return;attempts++;checked=true;const correct=story().steps,count=order.filter((x,i)=>x===correct[i]).length;const box=$("feedback");box.className="feedback show "+(count===correct.length?"good":"try");if(count===correct.length){solved=true;const stars=attempts===1?3:attempts===2?2:1;const old=data.done[current];if(!old||stars>(old.stars||0))data.done[current]={percent:100,stars};data.history[current]||=[];if(!data.history[current].includes(activeVariant))data.history[current].push(activeVariant);if(attempts===1)data.perfectFirst=(data.perfectFirst||0)+1;save();renderEverything();$("checkBtn").disabled=true;$("nextActions").classList.remove("hidden");box.innerHTML=`<div class="celebrate">🎉🏆🌟🎊</div><h3>Εξαιρετικά! Όλες οι προτάσεις είναι στη σωστή σειρά!</h3><p>Κέρδισες ${stars} ${stars===1?"αστέρι":"αστέρια"} σε αυτή την προσπάθεια. Η καλύτερη επίδοσή σου αποθηκεύτηκε!</p>`;playSound(true);confetti();showToast("🏅 Μπράβο! +"+stars+" ⭐")}else{box.innerHTML=`<h3>🔴 ${count} από ${correct.length} προτάσεις στη σωστή θέση!</h3><p>Οι πράσινες προτάσεις είναι σωστές και οι κόκκινες χρειάζονται αλλαγή. Δοκίμασε ξανά!</p>`;playSound(false)}renderCards()}
-function resetOrder(){order=shuffled(story().steps);solved=false;checked=false;attempts=0;$("feedback").className="feedback";$("feedback").textContent="";$("checkBtn").disabled=false;$("nextActions").classList.add("hidden");renderCards()}
-$("startBtn").addEventListener("click",()=>{const n=$("studentName").value.trim();if(!n){$("studentName").focus();return}const existing=storedProfiles().find(x=>x.toLocaleLowerCase("el-GR")===n.toLocaleLowerCase("el-GR"));load(existing||n)});
+function check(){if(solved)return;attempts++;checked=true;const correct=story().steps,count=order.filter((x,i)=>x===correct[i]).length;const box=$("feedback");box.className="feedback show "+(count===correct.length?"good":"try");if(count===correct.length){solved=true;const stars=attempts===1?3:attempts===2?2:1;const old=data.done[current];if(!old||stars>(old.stars||0))data.done[current]={percent:100,stars};data.history[current]||=[];if(!data.history[current].includes(activeVariant))data.history[current].push(activeVariant);if(attempts===1)data.perfectFirst=(data.perfectFirst||0)+1;save();renderEverything();$("checkBtn").classList.add("hidden");$("resetBtn").classList.add("hidden");$("nextActions").classList.remove("hidden");box.innerHTML=`<div class="celebrate">🎉🏆🌟🎊</div><h3>Εξαιρετικά! Όλες οι προτάσεις είναι στη σωστή σειρά!</h3><p>Κέρδισες ${stars} ${stars===1?"αστέρι":"αστέρια"} σε αυτή την προσπάθεια. Η καλύτερη επίδοσή σου αποθηκεύτηκε!</p>`;playSound(true);confetti();showToast("🏅 Μπράβο! +"+stars+" ⭐")}else{box.innerHTML=`<h3>🔴 ${count} από ${correct.length} προτάσεις στη σωστή θέση!</h3><p>Οι πράσινες προτάσεις είναι σωστές και οι κόκκινες χρειάζονται αλλαγή. Δοκίμασε ξανά!</p>`;playSound(false)}renderCards()}
+function resetOrder(){order=shuffled(story().steps);solved=false;checked=false;attempts=0;$("feedback").className="feedback";$("feedback").textContent="";$("checkBtn").disabled=false;$("checkBtn").classList.remove("hidden");$("resetBtn").classList.remove("hidden");$("nextActions").classList.add("hidden");renderCards()}
+$("startBtn").addEventListener("click",()=>{
+ const chosen=$("existingProfileSelect").value;
+ if(chosen!=="new"){
+  const profile=storedProfiles().find(p=>p.storageKey===chosen);
+  if(profile){load(profile.name,profile.section,profile.storageKey);return}
+  renderProfiles();return;
+ }
+ const name=$("studentName").value.trim().replace(/\s+/g," ");
+ const section=$("studentSection").value;
+ if(!name){$("studentName").focus();return}
+ if(!section){$("studentSection").focus();return}
+ const existing=storedProfiles().find(p=>p.name.toLocaleLowerCase("el-GR")===name.toLocaleLowerCase("el-GR")&&p.section===section);
+ load(existing?.name||name,section,existing?.storageKey||profileKey(name,section));
+});
 $("studentName").addEventListener("keydown",e=>{if(e.key==="Enter")$("startBtn").click()});
-$("switchBtn").addEventListener("click",()=>{save();$("app").classList.add("hidden");$("app").classList.remove("playing");$("loginPanel").classList.remove("hidden");$("studentName").value="";$("studentName").focus();$("profileLabel").textContent="Δεν έχει επιλεγεί μαθητής";renderProfiles()});
+$("existingProfileSelect").addEventListener("change",updateLoginMode);
+$("switchBtn").addEventListener("click",()=>{save();$("app").classList.add("hidden");$("app").classList.remove("playing");$("loginPanel").classList.remove("hidden");$("studentName").value="";$("studentSection").value="";$("existingProfileSelect").value="new";updateLoginMode();$("studentName").focus();$("profileLabel").textContent="Δεν έχει επιλεγεί μαθητής";renderProfiles()});
 $("quickPlayBtn").addEventListener("click",()=>{const i=activities.findIndex((a,j)=>!data.done[j]&&isUnlocked(j));openActivity(i>=0?i:0)});
 $("backBtn").addEventListener("click",()=>{$("gamePanel").classList.add("hidden");$("app").classList.remove("playing");renderEverything();$("worldMap").scrollIntoView({behavior:"smooth",block:"start"})});
-$("checkBtn").addEventListener("click",check);$("shuffleBtn").addEventListener("click",resetOrder);$("resetBtn").addEventListener("click",resetOrder);
+$("checkBtn").addEventListener("click",check);$("resetBtn").addEventListener("click",resetOrder);
 $("soundToggle").addEventListener("click",()=>{audioEnabled=!audioEnabled;$("soundToggle").textContent=audioEnabled?"🔊 Ήχοι: ενεργοί":"🔇 Ήχοι: κλειστοί";if(audioEnabled)playSound(true)});
 $("variantBtn").addEventListener("click",()=>openActivity(current,1-activeVariant));
-$("nextBtn").addEventListener("click",()=>{let next=activities.findIndex((a,i)=>i>current&&!data.done[i]&&isUnlocked(i));if(next<0)next=activities.findIndex((a,i)=>!data.done[i]&&isUnlocked(i));if(next>=0)openActivity(next);else if(completed(data)===20){$("gamePanel").classList.add("hidden");$("app").classList.remove("playing");$("finishPanel").classList.remove("hidden");$("finishPanel").scrollIntoView({behavior:"smooth"})}else{$("gamePanel").classList.add("hidden");$("app").classList.remove("playing");activeWorld=Math.min(3,Math.floor((current+1)/5));renderEverything();$("worldMap").scrollIntoView({behavior:"smooth"})}});
+$("nextBtn").addEventListener("click",()=>{let next=activities.findIndex((a,i)=>i>current&&!data.done[i]&&isUnlocked(i));if(next<0)next=activities.findIndex((a,i)=>!data.done[i]&&isUnlocked(i));if(next>=0)openActivity(next);else if(completed(data)===30){$("gamePanel").classList.add("hidden");$("app").classList.remove("playing");$("finishPanel").classList.remove("hidden");$("finishPanel").scrollIntoView({behavior:"smooth"})}else{$("gamePanel").classList.add("hidden");$("app").classList.remove("playing");activeWorld=Math.min(worlds.length-1,Math.floor((current+1)/5));renderEverything();$("worldMap").scrollIntoView({behavior:"smooth"})}});
 $("againBtn").addEventListener("click",()=>{if(!confirm("Να ξεκινήσεις από την αρχή; Θα μηδενιστούν η πρόοδος και τα αστέρια αυτού του μαθητή."))return;data=fresh();save();activeWorld=0;renderEverything();openActivity(0)});
-$("deleteBtn").addEventListener("click",()=>{if(!student)return;if(confirm(`Να διαγραφεί ο λογαριασμός «${student}» και όλη η αποθηκευμένη πρόοδός του από αυτή τη συσκευή;`)){localStorage.removeItem(key(student));student="";data=null;$("app").classList.add("hidden");$("app").classList.remove("playing");$("loginPanel").classList.remove("hidden");$("studentName").value="";$("profileLabel").textContent="Δεν έχει επιλεγεί μαθητής";$("gamePanel").classList.add("hidden");renderProfiles()}});
+$("deleteBtn").addEventListener("click",()=>{if(!student)return;if(confirm(`Να διαγραφεί ο λογαριασμός «${student}» και όλη η αποθηκευμένη πρόοδός του από αυτή τη συσκευή;`)){localStorage.removeItem(studentStorageKey||key(student));student="";studentSection="";studentStorageKey="";data=null;$("app").classList.add("hidden");$("app").classList.remove("playing");$("loginPanel").classList.remove("hidden");$("studentName").value="";$("studentSection").value="";$("existingProfileSelect").value="new";updateLoginMode();$("profileLabel").textContent="Δεν έχει επιλεγεί μαθητής";$("gamePanel").classList.add("hidden");renderProfiles()}});
 
 renderProfiles();
+
+/* Λειτουργία εκπαιδευτικού: PIN, αναφορές και μεταφορά μαθητών. */
+const teacherPinStorageKey="sequence-game-teacher-pin-v1";
+const teacherSections=["Α1","Α2","Β1","Β2","Γ1","Γ2","Γ3","Δ1","Δ2","Ε1","Ε2","ΣΤ1","ΣΤ2"];
+let teacherUnlocked=false;
+function getPin(){try{return localStorage.getItem(teacherPinStorageKey)}catch(e){return null}}
+function teacherMessage(message){$("teacherPinMessage").textContent=message}
+function csvCell(value){const v=String(value??"");return '"'+v.replace(/"/g,'""')+'"'}
+function downloadBlob(name,body,type){const blob=new Blob([body],{type});const url=URL.createObjectURL(blob);const link=document.createElement("a");link.href=url;link.download=name;document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+function teacherRecord(p){let d;try{d=JSON.parse(localStorage.getItem(p.storageKey))||fresh()}catch(e){d=fresh()}if(!d||typeof d!=="object"||Array.isArray(d))d=fresh();const done=completed(d);const stars=totalStars(d);const scores=Object.values(d.done||{}).map(v=>Number(v?.percent)||0);return {...p,data:d,done,stars,best:scores.length?Math.max(...scores):0}}
+function teacherRecords(){return storedProfiles().map(teacherRecord)}
+function teacherRender(){if(!teacherUnlocked)return;const section=$("teacherClassFilter").value;const all=teacherRecords();const rows=section?all.filter(p=>section==="__legacy__"?!p.section:p.section===section):all;$("teacherTotals").textContent=`${rows.length} μαθητές · ${rows.reduce((a,p)=>a+p.done,0)} ολοκληρωμένες δραστηριότητες · ${rows.reduce((a,p)=>a+p.stars,0)} αστέρια`;
+ const tbody=$("teacherRows");tbody.replaceChildren();for(const p of rows){const tr=document.createElement("tr");for(const v of [p.name,p.section||"Παλιό προφίλ",p.done+"/30",p.stars+" ⭐",p.done?p.best+"%":"—"]){const td=document.createElement("td");td.textContent=v;tr.appendChild(td)}const td=document.createElement("td");const del=document.createElement("button");del.type="button";del.className="teacher-mini";del.textContent="Διαγραφή";del.addEventListener("click",()=>{if(!teacherUnlocked)return;if(!confirm(`Να διαγραφεί ΟΡΙΣΤΙΚΑ ο μαθητής «${p.name}» (${p.section||"χωρίς τμήμα"});`))return;try{localStorage.removeItem(p.storageKey);if(studentStorageKey===p.storageKey){student="";studentSection="";studentStorageKey="";data=null;$("app").classList.add("hidden");$("app").classList.remove("playing");$("loginPanel").classList.remove("hidden")}renderProfiles();teacherRender()}catch(e){alert("Δεν ήταν δυνατή η διαγραφή.")}});td.appendChild(del);tr.appendChild(td);tbody.appendChild(tr)}if(!rows.length){const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=6;td.textContent="Δεν υπάρχουν μαθητές στο συγκεκριμένο τμήμα.";tr.appendChild(td);tbody.appendChild(tr)}}
+function teacherLock(){teacherUnlocked=false;$("teacherDashboard").classList.add("hidden");$("teacherLoginArea").classList.remove("hidden");$("teacherPin").value="";$("pinInfo").textContent=getPin()?"Πληκτρολόγησε το PIN εκπαιδευτικού.":"Πρώτη χρήση: όρισε PIN 4–8 ψηφίων.";teacherMessage("")}
+$("teacherOpenBtn").addEventListener("click",()=>{$("teacherPanel").classList.remove("hidden");teacherLock();$("teacherPanel").scrollIntoView({behavior:"smooth",block:"start"})});
+$("teacherCloseBtn").addEventListener("click",()=>{$("teacherPanel").classList.add("hidden");teacherLock()});
+$("teacherUnlockBtn").addEventListener("click",()=>{const pin=$("teacherPin").value.trim();if(!/^\d{4,8}$/.test(pin)){teacherMessage("Το PIN πρέπει να έχει από 4 έως 8 ψηφία.");return}try{let stored=getPin();if(!stored){if(!confirm("Να οριστεί αυτό το PIN για τον εκπαιδευτικό; Φρόντισε να το θυμάσαι."))return;localStorage.setItem(teacherPinStorageKey,pin);stored=pin}if(stored!==pin){teacherMessage("Λάθος PIN. Δοκίμασε ξανά.");return}teacherUnlocked=true;$("teacherLoginArea").classList.add("hidden");$("teacherDashboard").classList.remove("hidden");$("teacherPin").value="";teacherRender()}catch(e){teacherMessage("Δεν είναι διαθέσιμη η τοπική αποθήκευση.")}});
+$("teacherPin").addEventListener("keydown",e=>{if(e.key==="Enter")$("teacherUnlockBtn").click()});
+$("teacherLockBtn").addEventListener("click",teacherLock);
+$("teacherClassFilter").addEventListener("change",teacherRender);
+for(const sec of teacherSections)$("teacherClassFilter").add(new Option(sec,sec));
+$("teacherClassFilter").add(new Option("Χωρίς τμήμα (παλιά προφίλ)","__legacy__"));
+// Legacy entries displayed via the dedicated option.
+
+$("exportCsvBtn").addEventListener("click",()=>{if(!teacherUnlocked)return;const s=$("teacherClassFilter").value;const entries=teacherRecords().filter(p=>!s||(s==="__legacy__"?!p.section:p.section===s));const table=[["Μαθητής","Τμήμα","Ολοκληρωμένες /30","Αστέρια /90","Καλύτερη επίδοση (%)",...Array.from({length:30},(_,i)=>"Άσκηση "+(i+1))]];for(const p of entries)table.push([p.name,p.section,p.done,p.stars,p.best,...Array.from({length:30},(_,i)=>p.data.done?.[i]?.stars??"")]);const csv="\uFEFF"+table.map(line=>line.map(csvCell).join(";")).join("\r\n");downloadBlob("mathites_sosti_seira.csv",csv,"text/csv;charset=utf-8")});
+$("backupBtn").addEventListener("click",()=>{if(!teacherUnlocked)return;const records=teacherRecords().map(p=>({name:p.name,section:p.section,data:p.data}));downloadBlob("sosti_seira_backup.json",JSON.stringify({app:"sosti-seira",version:1,exportedAt:new Date().toISOString(),students:records},null,2),"application/json;charset=utf-8")});
+$("restoreBtn").addEventListener("click",()=>{if(teacherUnlocked)$("restoreInput").click()});
+$("restoreInput").addEventListener("change",async e=>{if(!teacherUnlocked)return;const file=e.target.files?.[0];if(!file)return;try{if(file.size>5_000_000)throw Error("Το αρχείο είναι πολύ μεγάλο.");const parsed=JSON.parse(await file.text());if(parsed.app!=="sosti-seira"||!Array.isArray(parsed.students)||parsed.students.length>2000)throw Error("Το αρχείο δεν είναι έγκυρο αντίγραφο του παιχνιδιού.");let valid=0,skip=0;const items=[];for(const p of parsed.students){if(!p||typeof p.name!=="string"||!p.name.trim()||p.name.length>60||typeof p.section!=="string"||p.section.length>10||!p.data||typeof p.data!=="object"||Array.isArray(p.data)){skip++;continue}const storage=p.section?profileKey(p.name,p.section):key(p.name);if(localStorage.getItem(storage)!==null){skip++;continue}items.push([storage,JSON.stringify(p.data)]);valid++}if(!confirm(`Να εισαχθούν ${valid} νέοι μαθητές; ${skip} εγγραφές θα παραλειφθούν (υπάρχοντες ή μη έγκυρες). Δεν θα αντικατασταθούν υπάρχοντα δεδομένα.`))return;for(const [k,v] of items)localStorage.setItem(k,v);renderProfiles();teacherRender();alert(`Εισήχθησαν ${valid} λογαριασμοί.`)}catch(error){alert("Αποτυχία εισαγωγής: "+error.message)}finally{e.target.value=""}});
+$("changePinBtn").addEventListener("click",()=>{if(!teacherUnlocked)return;const newPin=prompt("Νέο PIN εκπαιδευτικού (4–8 ψηφία):");if(newPin===null)return;if(!/^\d{4,8}$/.test(newPin)){alert("Το PIN πρέπει να έχει 4–8 ψηφία.");return}if(!confirm("Να αλλάξει το PIN εκπαιδευτικού;"))return;localStorage.setItem(teacherPinStorageKey,newPin);alert("Το PIN άλλαξε.")});
+
 </script>
 </body>
 </html>
